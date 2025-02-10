@@ -13,4 +13,5 @@ enum DatabaseErrors :  Error {
     case InsertionError(String)
     case FetchingError(String)
     case DeletionError(String)
+    case UpdateError(String)
 }
