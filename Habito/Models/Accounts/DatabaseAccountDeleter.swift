@@ -31,4 +31,19 @@ class DatabaseAccountDeleter {
         
         sqlite3_finalize(deleteStatment)
     }
+    
+    ///deleteAccountByName(username:)
+    ///
+    func deleteAccountByName(username: String) {
+        var deleteStatement : OpaquePointer?
+        let db = DatabaseFoundation.databaseFoundation.db
+        let deleteQuery = "DELETE FROM account WHERE username = '\(username)'"
+        
+        if sqlite3_prepare(db, deleteQuery, -1, &deleteStatement, nil) == SQLITE_OK {
+            if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                
+            }
+        }
+        sqlite3_finalize(deleteStatement)
+    }
 }
