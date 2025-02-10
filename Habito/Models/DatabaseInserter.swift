@@ -8,8 +8,8 @@
 import Foundation
 import SQLite3
 
-class DatabaseEditor {
-    static var databaseEditor = DatabaseEditor()
+class DatabaseInserter {
+    static var databaseInserter = DatabaseInserter()
     
     //ID doesn't need to be specified and profile picture link isn't specified here
     func insertAccount(username: NSString, password: NSString, phoneNumber: NSString, email: NSString) throws {
@@ -24,7 +24,7 @@ class DatabaseEditor {
             sqlite3_bind_text(insertStatement, 4, email.utf8String, -1, nil)
             
             //this is for the profile picture and can be change once we have actually pictures to use
-            sqlite3_bind_text(insertStatement, 5, "", -1, nil)
+            sqlite3_bind_text(insertStatement, 5, " ", -1, nil)
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Account successfully inserted")

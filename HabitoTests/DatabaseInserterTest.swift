@@ -17,10 +17,18 @@ final class DatabaseEditorTest: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try DatabaseAccountDeleter.accountDeleter.deleteAllAccounts()
     }
 
     func testAccountInsertion_noThrow_noExistingAccounts() throws {
-        XCTAssertNoThrow(try DatabaseEditor.databaseEditor.insertAccount(username: "testUsername", password: "testPassword", phoneNumber: "testPhoneNumber", email: "testEmail"))
+        XCTAssertNoThrow(try DatabaseInserter.databaseInserter.insertAccount(username: "testUsername", password: "testPassword", phoneNumber: "testPhoneNumber", email: "testEmail"))
+    }
+    
+    //will fail until deletion can be used to clean up
+    func testAccountInsertion_returnsLisOfLength1_insertingIntoEmptyDatabase() throws {
+        try DatabaseInserter.databaseInserter.insertAccount(username: "test", password: "test", phoneNumber: "test", email: "test")
+        let fetchedAccounts = try DatabaseAccountFetcher.accountFetcher.fetchAllAccounts()
+        XCTAssertEqual(fetchedAccounts.count, 1)
     }
 
     /*func testPerformanceExample() throws {
