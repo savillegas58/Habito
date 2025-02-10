@@ -25,7 +25,7 @@ final class DatabaseEditorTest: XCTestCase {
     }
     
     //will fail until deletion can be used to clean up
-    func testAccountInsertion_returnsLisOfLength1_insertingIntoEmptyDatabase() throws {
+    func testAccountInsertion_only1AccountInTheDatabase_insertingIntoEmptyDatabase() throws {
         try DatabaseInserter.databaseInserter.insertAccount(username: "test", password: "test", phoneNumber: "test", email: "test")
         let fetchedAccounts = try DatabaseAccountFetcher.accountFetcher.fetchAllAccounts()
         XCTAssertEqual(fetchedAccounts.count, 1)
