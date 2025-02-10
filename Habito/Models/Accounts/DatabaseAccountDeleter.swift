@@ -11,6 +11,11 @@ import SQLite3
 class DatabaseAccountDeleter {
     static var accountDeleter = DatabaseAccountDeleter()
     
+    ///deleteAllAccounts
+    ///no arguments
+    ///no return
+    ///throws DatabaseErros.DeletionError
+    ///This funcion will delete all accounts from the account table. This mthod primarily exists for testing purposes and should likely never be used oustside testing
     func deleteAllAccounts() throws {
         var deleteStatment : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db
