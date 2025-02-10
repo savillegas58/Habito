@@ -40,4 +40,32 @@ final class DatabseAccountFetcherTest: XCTestCase {
         let fetchResult = try DatabaseAccountFetcher.accountFetcher.fetchAllAccounts()
         XCTAssertEqual(fetchResult.count, 2)
     }
+    
+    func testFetchAccountByUserName_returnsNonNil_subjectOfSearchExists() throws {
+        try populateDataBaseWithAccounts(numberOfAccounts: 5)
+        let usernameToSearchFor = "test: 3"
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: usernameToSearchFor)
+        
+        XCTAssertNotNil(fetchedAccount)
+    }
+   
+    func testFetchAccountByUserName_returnsNil_subjectOfSearchDoesNotExist() throws {
+        try populateDataBaseWithAccounts(numberOfAccounts: 5)
+        let usernameToSearchFor = "no match"
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: usernameToSearchFor)
+        
+        XCTAssertNil(fetchedAccount)
+    }
+    
+    func testFetchAccountByUsername_returnAccountThatwasSearchedFor_subjectofSearchExists() throws {
+        try populateDataBaseWithAccounts(numberOfAccounts: 5)
+        try DatabaseInserter.databaseInserter.insertAccount(username: "movie", password: "map", phoneNumber: "music", email: "method")
+        
+        let usernameToSearchFor = "movie"
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: usernameToSearchFor)
+        XCTAssertEqual(fetchedAccount?.username, "movie")
+        XCTAssertEqual(fetchedAccount?.password, "map")
+        XCTAssertEqual(fetchedAccount?.phoneNumber, "music")
+        XCTAssertEqual(fetchedAccount?.email, "method")
+    }
 }
