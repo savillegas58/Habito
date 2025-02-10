@@ -51,7 +51,7 @@ class DatabaseFoundation {
     ///Creates a table for storing user accounts with id, username, password, phoneNumber, email, and profilePicutre columns.
     ///id is the primary key and is autoincremented
     private func createAccountTable() throws {
-        let accountTableCreationStatement = "CREATE TABLE IF NOT EXISTS account(accountID INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, phoneNumber TEXT, email TEXT, profilePictureLink TEXT)"
+        let accountTableCreationStatement = "CREATE TABLE IF NOT EXISTS account(accountID INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT UNIQUE, password TEXT, phoneNumber TEXT, email TEXT, profilePictureLink TEXT)"
         
         if sqlite3_exec(db, accountTableCreationStatement, nil, nil, nil) != SQLITE_OK {
             let errorMessage = String(cString: sqlite3_errmsg(db)!)

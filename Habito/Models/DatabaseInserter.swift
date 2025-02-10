@@ -11,7 +11,14 @@ import SQLite3
 class DatabaseInserter {
     static var databaseInserter = DatabaseInserter()
     
-    //ID doesn't need to be specified and profile picture link isn't specified here
+
+    ///insertAccount(username: passsword: phoneNumber: email)
+    ///arguments username, password, phonenumber, and email. All are of type NSString.
+    ///no return
+    ///throws DatabasseErrors.InsertionError
+    ///Used to insert a  new account into the database with the specified data. The user's ID is determiend after the user is inserted and
+    ///the profile picutre link is meant to be set to a default image when the account is first added.
+    //TODO: defautl user image
     func insertAccount(username: NSString, password: NSString, phoneNumber: NSString, email: NSString) throws {
         var insertStatement: OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db

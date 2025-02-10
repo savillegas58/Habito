@@ -12,6 +12,11 @@ class DatabaseAccountFetcher {
     static var accountFetcher = DatabaseAccountFetcher()
     var accountList = [Account]()
     
+    ///fetchAllAccounts()
+    ///no arguments
+    ///returns an array of Account objects
+    ///throws DatabaseErorrs.FetchingError
+    ///This method retrieves all accounts from the database and returns them as an array of Account objects.
     func fetchAllAccounts() throws -> [Account] {
         accountList.removeAll()
         
