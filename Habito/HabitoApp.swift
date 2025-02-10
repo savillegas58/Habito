@@ -12,6 +12,7 @@ struct HabitoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                //.environment(\.font, Font.custom("Poppins-Regular", size: 14))
         }
     }
 }
