@@ -12,6 +12,8 @@ class DatabaseHabitFetcher {
     static var habitFetcher = DatabaseHabitFetcher()
     var habitList = [Habit]()
     
+    //TODO: FETCH INDIVIDUAL?
+    
     func fetchAccountHabits(accountID: Int) throws -> [Habit] {
         habitList.removeAll()
         
