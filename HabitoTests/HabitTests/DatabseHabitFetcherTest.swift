@@ -37,5 +37,18 @@ final class DatabseHabitFetcherTest: XCTestCase {
         XCTAssertNoThrow(try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: accountID!))
     }
     
+    func testFetchAccountHabits_returns2_AccountHasMultipleHabits() throws {
+        try populateDataBaseWithAccounts(numberOfAccounts: 1)
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        let accountID = fetchedAccount?.ID
+        
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit" as NSString, currentProgress: 1, goal: 10)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1" as NSString, currentProgress: 3, goal: 10)
+        
+        let fetchedHabits = try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: accountID!)
+        XCTAssertEqual(fetchedHabits.count, 2)
+    }
+    
+    
     //TODO: FURTHER TESTING
 }
