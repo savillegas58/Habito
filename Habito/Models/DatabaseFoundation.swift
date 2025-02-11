@@ -66,7 +66,7 @@ class DatabaseFoundation {
     ///Creates a table for storing habits with name, curentProgressm and goal columns and a foreign key referencing the accountID of an account
     ///columns curentProgress and goal may be subject to change once we knwo what we need for the habits
     private func createHabitTable() throws {
-        let habitTableCreationStatement = "CREATE TABLE IF NOT EXISTS habit(accountID INTEGER, name TEXT, currentProgress INTEGER, goal INTEGER, FOREIGN KEY(accountID) REFERENCES account(accountID))"
+        let habitTableCreationStatement = "CREATE TABLE IF NOT EXISTS habit(accountID INTEGER, name TEXT, currentProgress INTEGER, goal INTEGER, FOREIGN KEY(accountID) REFERENCES account(accountID) ON DELETE CASCADE)"
         
         if sqlite3_exec(db, habitTableCreationStatement, nil, nil, nil) != SQLITE_OK {
             let errorMessage = String(cString: sqlite3_errmsg(db)!)
@@ -81,7 +81,7 @@ class DatabaseFoundation {
     ///Creates a table for storing challenges with name, curentProgress, goal, and date columns and a foreign key referencing the accountID of an account
     ///Date is stores as Text becaus SQLite doesnt not have a dedicate date type
     private func createChallengeTable() throws {
-        let challengeTableCreationStatement = "CREATE TABLE IF NOT EXISTS challenge(accountID INTEGER, name TEXT, currentProgress INTEGER, goal INTEGER, date TEXT, FOREIGN KEY(accountID) REFERENCES account(accountID))"
+        let challengeTableCreationStatement = "CREATE TABLE IF NOT EXISTS challenge(accountID INTEGER, name TEXT, currentProgress INTEGER, goal INTEGER, date TEXT, FOREIGN KEY(accountID) REFERENCES account(accountID) ON DELETE CASCADE)"
         
         if sqlite3_exec(db, challengeTableCreationStatement, nil, nil, nil) != SQLITE_OK {
             let errorMessage = String(cString: sqlite3_errmsg(db)!)
