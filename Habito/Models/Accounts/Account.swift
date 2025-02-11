@@ -16,6 +16,7 @@ class Account {
     var profilePictureLink: String?
     
     init(ID: Int, username: String, password : String, phoneNumber: String, email: String, profilePictureLink: String) {
+        self.ID = ID
         self.username = username
         self.password = password
         self.phoneNumber = phoneNumber
