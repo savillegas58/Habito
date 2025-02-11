@@ -14,8 +14,8 @@ class DatabaseHabitInserter {
     //TODO: ADD COMMENT ABOUT THE FOEEGIN KEY STUFF
     func insertHabit(accountID : Int, name : NSString, currentProgress : Int, goal : Int) throws {
         var insertStatement : OpaquePointer?
-        var db = DatabaseFoundation.databaseFoundation.db
-        var insertQuery = "INSERT INTO habit(accountID, name, currentProgress, goal) VALUES(?,?,?,?)"
+        let db = DatabaseFoundation.databaseFoundation.db
+        let insertQuery = "INSERT INTO habit(accountID, name, currentProgress, goal) VALUES(?,?,?,?)"
         
         if sqlite3_prepare_v2(db, insertQuery, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(insertStatement, 1, Int32(accountID))
