@@ -25,22 +25,17 @@ struct SignInView: View {
                 .padding(.bottom)
             Text("E-mail")
             TextField("Username",text: $username)
-                .frame(width: 300, height: 40)
-                .overlay(
-                    RoundedRectangle(cornerRadius : 15)
-                        .stroke(style: StrokeStyle(lineWidth: 1))
-                        .foregroundColor(.blue)
-                )
+                .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
+                .padding(.leading)
+                .padding(.trailing)
+
             Text("Password")
             SecureField("Password",text: $password)
-                .frame(width: 300, height: 40)
-                .overlay(
-                    RoundedRectangle(cornerRadius : 15)
-                        .stroke(style: StrokeStyle(lineWidth: 1))
-                        .foregroundColor(.blue)
-            )
+                .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
+                .padding(.leading)
+                .padding(.trailing)
             Button("Login"){
                 isLoggedIn = true
             }
