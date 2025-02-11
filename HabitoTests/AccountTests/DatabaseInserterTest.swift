@@ -21,12 +21,12 @@ final class DatabaseEditorTest: XCTestCase {
     }
 
     func testAccountInsertion_noThrow_noExistingAccounts() throws {
-        XCTAssertNoThrow(try DatabaseInserter.databaseInserter.insertAccount(username: "testUsername", password: "testPassword", phoneNumber: "testPhoneNumber", email: "testEmail"))
+        XCTAssertNoThrow(try DatabaseAccountInserter.accountInserter.insertAccount(username: "testUsername", password: "testPassword", phoneNumber: "testPhoneNumber", email: "testEmail"))
     }
     
     //will fail until deletion can be used to clean up
     func testAccountInsertion_only1AccountInTheDatabase_insertingIntoEmptyDatabase() throws {
-        try DatabaseInserter.databaseInserter.insertAccount(username: "test", password: "test", phoneNumber: "test", email: "test")
+        try DatabaseAccountInserter.accountInserter.insertAccount(username: "test", password: "test", phoneNumber: "test", email: "test")
         let fetchedAccounts = try DatabaseAccountFetcher.accountFetcher.fetchAllAccounts()
         XCTAssertEqual(fetchedAccounts.count, 1)
     }

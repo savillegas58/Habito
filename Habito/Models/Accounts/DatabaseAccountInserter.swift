@@ -8,8 +8,8 @@
 import Foundation
 import SQLite3
 
-class DatabaseInserter {
-    static var databaseInserter = DatabaseInserter()
+class DatabaseAccountInserter {
+    static var accountInserter = DatabaseAccountInserter()
     
 
     ///insertAccount(username: passsword: phoneNumber: email)

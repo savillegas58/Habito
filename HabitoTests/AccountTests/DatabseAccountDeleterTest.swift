@@ -23,7 +23,7 @@ final class DatabseAccountDeleterTest: XCTestCase {
     func populateDataBaseWithAccounts(numberOfAccounts: Int) throws {
         for i in 0..<numberOfAccounts {
             let accountSpecificData : NSString = ("test: " + String(i)) as NSString
-            try DatabaseInserter.databaseInserter.insertAccount(username: accountSpecificData, password: accountSpecificData, phoneNumber: accountSpecificData, email: accountSpecificData)
+            try DatabaseAccountInserter.accountInserter.insertAccount(username: accountSpecificData, password: accountSpecificData, phoneNumber: accountSpecificData, email: accountSpecificData)
         }
     }
     
