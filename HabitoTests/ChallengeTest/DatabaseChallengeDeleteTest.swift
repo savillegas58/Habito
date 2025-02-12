@@ -22,7 +22,7 @@ final class DatabaseChallengeDeleteTest: XCTestCase {
     
     func populateDataBaseWithAccounts(numberOfAccounts: Int) throws {
         for i in 0..<numberOfAccounts {
-            let accountSpecificData : NSString = ("test: " + String(i)) as NSString
+            let accountSpecificData = ("test: " + String(i))
             try DatabaseAccountInserter.accountInserter.insertAccount(username: accountSpecificData, password: accountSpecificData, phoneNumber: accountSpecificData, email: accountSpecificData)
         }
     }

@@ -21,7 +21,7 @@ final class DatabseHabitInserterTest: XCTestCase {
     }
 
     func testInsertHabit_noThrows_ExistantAccountWithNoHabits() throws {
-        let test : NSString = "test"
+        let test = "test"
         try DatabaseAccountInserter.accountInserter.insertAccount(username: test, password: test, phoneNumber: test, email: test)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: test as String)

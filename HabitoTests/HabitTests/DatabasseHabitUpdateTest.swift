@@ -21,7 +21,7 @@ final class DatabasseHabitUpdateTest: XCTestCase {
     }
 
     func testUpdateAccountHabitProgeress_habitIsUpdated_accountAndHAbitExist() throws {
-        let testString : NSString = "test"
+        let testString = "test"
         try DatabaseAccountInserter.accountInserter.insertAccount(username: testString, password: testString, phoneNumber: testString, email: testString)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: testString as String)
