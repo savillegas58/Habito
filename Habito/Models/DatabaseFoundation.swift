@@ -95,8 +95,9 @@ class DatabaseFoundation {
     ///throws: tabelCreationError
     ///creates a table for stroing recipes with the columns anme, ingridients, suggestions, timeInMinutes, calories, and rating
     ///recipes are not assocaited with accounts
+    //TODO: rename suggesstions to instructions
     private func createRecipeTable() throws {
-        let recipeTableCreationStatment = "CREATE TABLE IF NOT EXISTS recipe(name TEXT, ingredients TEXT, suggestions TEXT, timeInMinutes INTEGER, calories INTEGER, rating INTEGER)"
+        let recipeTableCreationStatment = "CREATE TABLE IF NOT EXISTS recipe(name TEXT, ingredients TEXT, instructions TEXT, suggestions TEXT, timeInMinutes INTEGER, calories INTEGER, rating INTEGER)"
         
         if sqlite3_exec(db, recipeTableCreationStatment, nil, nil, nil) != SQLITE_OK {
             let errorMessage = String(cString: sqlite3_errmsg(db)!)
