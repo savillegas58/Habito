@@ -66,15 +66,6 @@ struct SignUpView: View {
             .cornerRadius(15)
             .padding()
             
-            Button("Sign Up"){
-                print("You signed up")
-                
-            }.buttonStyle(.borderedProminent)
-                .cornerRadius(15)
-                .tint(.darkGreen)
-                
-                
-            
         }.frame(maxHeight: .infinity, alignment: .top)
             .padding(.top, 20)
     }
