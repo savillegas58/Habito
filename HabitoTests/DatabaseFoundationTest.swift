@@ -22,19 +22,16 @@ final class DatabaseFoundationTest: XCTestCase {
         XCTAssertNoThrow(try DatabaseFoundation.databaseFoundation.createDatabase())
     }
 
-    /*func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }*/
-
-    /*func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }*/
+    func testDatabaseCreation_noThrowandDataisntOverwritten_existingDatabase() throws {
+        try DatabaseFoundation.databaseFoundation.createDatabase()
+        
+        try DatabaseAccountInserter.accountInserter.insertAccount(username: "c", password: "c", phoneNumber: "c", email: "c")
+        
+        XCTAssertNoThrow(try DatabaseFoundation.databaseFoundation.createDatabase())
+        
+        let fetchedAccounts = try DatabaseAccountFetcher.accountFetcher.fetchAllAccounts()
+        
+        XCTAssertEqual(fetchedAccounts.count, 1)
+    }
 
 }
