@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    var signUpViewModel = SignUpViewModel()
     @State var username: String = ""
     @State var email: String = ""
     @State var phoneNumber: String = ""
@@ -18,6 +19,8 @@ struct SignUpView: View {
                 .padding(.bottom)
             Text("Let's create an account for you!")
                 .padding(.bottom)
+                .bold()
+                .foregroundStyle(.darkGreen)
             Text("Username")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
@@ -47,7 +50,21 @@ struct SignUpView: View {
             SecureField("", text: $password)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
-                .padding(.horizontal, 20)
+
+
+
+                .padding(.leading)
+                .padding(.trailing)
+            Button("Sign Up", action:{
+                print("pressed sign up")
+                //TODO: input validation
+                signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
+            })
+            .frame(width: 300, height: 50)        .background(Color.darkGreen)
+            .foregroundStyle(.grayishWhite)
+            .bold()
+            .cornerRadius(15)
+            .padding()
             
             Button("Sign Up"){
                 print("You signed up")

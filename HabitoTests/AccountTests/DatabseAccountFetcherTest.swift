@@ -22,8 +22,8 @@ final class DatabseAccountFetcherTest: XCTestCase {
     
     func populateDataBaseWithAccounts(numberOfAccounts: Int) throws {
         for i in 0..<numberOfAccounts {
-            let accountSpecificData : NSString = ("test: " + String(i)) as NSString
-            try DatabaseInserter.databaseInserter.insertAccount(username: accountSpecificData, password: accountSpecificData, phoneNumber: accountSpecificData, email: accountSpecificData)
+            let accountSpecificData = ("test: " + String(i))
+            try DatabaseAccountInserter.accountInserter.insertAccount(username: accountSpecificData, password: accountSpecificData, phoneNumber: accountSpecificData, email: accountSpecificData)
         }
     }
 
@@ -59,7 +59,7 @@ final class DatabseAccountFetcherTest: XCTestCase {
     
     func testFetchAccountByUsername_returnAccountThatwasSearchedFor_subjectofSearchExists() throws {
         try populateDataBaseWithAccounts(numberOfAccounts: 5)
-        try DatabaseInserter.databaseInserter.insertAccount(username: "movie", password: "map", phoneNumber: "music", email: "method")
+        try DatabaseAccountInserter.accountInserter.insertAccount(username: "movie", password: "map", phoneNumber: "music", email: "method")
         
         let usernameToSearchFor = "movie"
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: usernameToSearchFor)
