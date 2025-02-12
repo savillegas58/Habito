@@ -13,7 +13,7 @@ class DatabaseChallengeInserter {
     
     func insertChallengeIntoAccount(accountID: Int, name: String, currentProgress: Int, goal: Int, date: String) throws {
         let db = DatabaseFoundation.databaseFoundation.db
-        let insertionQuery = "INSERT INTO challenge(acccountID, name, currentProgress, goal, date) VALUES (?,?,?,?,?)"
+        let insertionQuery = "INSERT INTO challenge(accountID, name, currentProgress, goal, date) VALUES (?,?,?,?,?)"
         var insertionStatement : OpaquePointer?
         
         if sqlite3_prepare_v2(db, insertionQuery, -1, &insertionStatement, nil) == SQLITE_OK {
