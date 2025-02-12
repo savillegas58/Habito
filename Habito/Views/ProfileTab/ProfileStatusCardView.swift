@@ -2,7 +2,7 @@
 //  ProfileStatusCardView.swift
 //  Habito
 //
-//  Created by squiggly on 2/10/25.
+//  Created by Saul on 2/10/25.
 //
 
 import SwiftUI
@@ -18,7 +18,7 @@ struct ProfileStatusCardView: View {
                 .font(.subheadline)
         } .overlay{
             RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.gray, lineWidth: 1)
+                .stroke(Color.gray, lineWidth: 0.1)
                 .frame(width: 100, height: 100)
         }
         

@@ -13,7 +13,7 @@ struct HealthyRecipesCardView: View {
     var body: some View {
         
         VStack{
-            NavigationLink(destination: Text("Test")) {
+            NavigationLink(destination: HealthyRecipesView()) {
                 HStack{
                     Text("Try our healthy recipes today")
                     Spacer()
