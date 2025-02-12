@@ -6,30 +6,39 @@
 //
 
 import XCTest
+@testable import Habito
 
 final class DatabaseChallengeDeleteTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        try DatabaseFoundation.databaseFoundation.createDatabase()
     }
-
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try DatabaseAccountDeleter.accountDeleter.deleteAllAccounts()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func populateDataBaseWithAccounts(numberOfAccounts: Int) throws {
+        for i in 0..<numberOfAccounts {
+            let accountSpecificData : NSString = ("test: " + String(i)) as NSString
+            try DatabaseAccountInserter.accountInserter.insertAccount(username: accountSpecificData, password: accountSpecificData, phoneNumber: accountSpecificData, email: accountSpecificData)
         }
+    }
+    
+    func testDeleteChallenggesFromAccount_removeChallenges_accountExistsWithChallenges() throws {
+        try populateDataBaseWithAccounts(numberOfAccounts: 1)
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        let accountID = fetchedAccount?.ID
+        
+        try DatabaseChallengeInserter.challengeInserter.insertChallengeIntoAccount(accountID: accountID!, name: "challenge", currentProgress: 0, goal: 10, date: "12-12-12")
+        
+        try DatabaseChallengeDeleter.challengeDeleter.deleteAllChallengesFromAccount(accountID: accountID!)
+        
+        let fetchedChallenges = try DatabaseChallengeFetcher.challengeFetcher.fetchAccountsChallenges(accountID: accountID!)
+        
+        XCTAssertEqual(fetchedChallenges.count, 0)
     }
 
 }
