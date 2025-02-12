@@ -21,7 +21,7 @@ final class DatabaseChallengeUpdateTest: XCTestCase {
     }
     
     func testUpdateChallenge_challengeProgressIsUPdated_challenegeExists() throws {
-        let testString : NSString = "test"
+        let testString = "test"
         try DatabaseAccountInserter.accountInserter.insertAccount(username: testString, password: testString, phoneNumber: testString, email: testString)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: testString as String)
