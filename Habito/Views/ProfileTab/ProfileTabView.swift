@@ -11,22 +11,25 @@ struct ProfileTabView: View {
     @State var username : String = "SD"
     @Binding var isLoggedIn : Bool
     var body: some View {
-        
+       
         
         VStack{
             //ProfileStatusCardView()
             
             List {
 
-                NavigationLink(destination: Text("sadf")){
+                NavigationLink(destination: PersonalDataView()){
+                    Image(systemName: "person.circle")
+                        .font(.title3)
                     Text("Personal Data")
-                        
                         
                 }.padding()
                     .foregroundStyle(.black,.black)
                     
                 
                 NavigationLink(destination: Text("sadf")){
+                    Image(systemName: "questionmark.circle")
+                        .font(.title3)
                     Text("Help")
                         
                         
@@ -42,7 +45,7 @@ struct ProfileTabView: View {
                 } .padding()
                     .foregroundStyle(.black,.black)
                     
-                
+            
                 HStack{
                     Image(systemName: "power")
                         .foregroundColor(.red)
@@ -52,6 +55,9 @@ struct ProfileTabView: View {
                     .tint(.red)
                     Spacer()
                     Image(systemName: "chevron.right")
+                        .font(.subheadline.bold())
+                        
+                    
                     
                 }
                 .listRowSeparator(.hidden)
@@ -60,7 +66,7 @@ struct ProfileTabView: View {
             
             }.scrollDisabled(true)
             
-        }
+        }.navigationTitle("Your Profile").navigationBarTitleDisplayMode(.inline)
         
     }
 }

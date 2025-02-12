@@ -22,34 +22,37 @@ struct SignUpView: View {
                 .bold()
                 .foregroundStyle(.darkGreen)
             Text("Username")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
             TextField("", text: $username)
-                .frame(width: 300, height: 50)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
+                .padding(.horizontal, 20)
                 
             Text("E-mail")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
             TextField("", text: $email)
-                .frame(width: 300, height: 50)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
+                .padding(.horizontal, 20)
             
             Text("Phone Number")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
             TextField("", text: $phoneNumber)
-                .frame(width: 300, height: 50)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
-            
+                .padding(.horizontal, 20)
             Text("Password")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
             SecureField("", text: $password)
-                .frame(width: 300, height: 50)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
+
+
+
                 .padding(.leading)
                 .padding(.trailing)
             Button("Sign Up", action:{
@@ -63,10 +66,17 @@ struct SignUpView: View {
             .cornerRadius(15)
             .padding()
             
-            
+            Button("Sign Up"){
+                print("You signed up")
+                
+            }.buttonStyle(.borderedProminent)
+                .cornerRadius(15)
+                .tint(.darkGreen)
+                
                 
             
-        }
+        }.frame(maxHeight: .infinity, alignment: .top)
+            .padding(.top, 20)
     }
 }
 

@@ -9,7 +9,14 @@ import SwiftUI
 
 struct HealthyRecipesView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView{
+            Text("Meal Plans")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 25)
+            RecipeCardView()
+            RecipeCardView()
+            RecipeCardView()
+        }
     }
 }
 
