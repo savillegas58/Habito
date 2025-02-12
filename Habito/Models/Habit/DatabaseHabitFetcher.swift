@@ -10,7 +10,7 @@ import SQLite3
 
 class DatabaseHabitFetcher {
     static var habitFetcher = DatabaseHabitFetcher()
-    var habitList = [Habit]()
+    private var habitList = [Habit]()
     
     //TODO: FETCH INDIVIDUAL?
     
