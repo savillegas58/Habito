@@ -26,7 +26,7 @@ final class DatabseHabitInserterTest: XCTestCase {
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: test as String)
         
-        XCTAssertNoThrow(try DatabaseHabitInserter.habitInserter.insertHabit(accountID: (fetchedAccount?.ID)!, name: "habit" as NSString, currentProgress: 1, goal: 1))
+        XCTAssertNoThrow(try DatabaseHabitInserter.habitInserter.insertHabit(accountID: (fetchedAccount?.ID)!, name: "habit", currentProgress: 1, goal: 1))
     }
 
 }
