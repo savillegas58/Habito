@@ -32,7 +32,7 @@ final class DatabseHabitFetcherTest: XCTestCase {
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         let accountID = fetchedAccount?.ID
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit" as NSString, currentProgress: 1, goal: 10)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10)
         
         XCTAssertNoThrow(try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: accountID!))
     }
@@ -42,8 +42,8 @@ final class DatabseHabitFetcherTest: XCTestCase {
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         let accountID = fetchedAccount?.ID
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit" as NSString, currentProgress: 1, goal: 10)
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1" as NSString, currentProgress: 3, goal: 10)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10)
         
         let fetchedHabits = try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: accountID!)
         XCTAssertEqual(fetchedHabits.count, 2)
