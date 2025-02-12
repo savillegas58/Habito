@@ -10,7 +10,7 @@ import SQLite3
 
 class DatabaseChallengeFetcher {
     static var challengeFetcher = DatabaseChallengeFetcher()
-    var challengeList = [Challenge]()
+    private var challengeList = [Challenge]()
     
     func fetchAccountsChallenges(accountID: Int) throws -> [Challenge]{
         let db = DatabaseFoundation.databaseFoundation.db
@@ -18,7 +18,7 @@ class DatabaseChallengeFetcher {
         var fetchStatement : OpaquePointer?
         
         if sqlite3_prepare_v2(db, fetchQuery, -1, &fetchStatement, nil) != SQLITE_OK {
-            throw DatabaseErrors.FetchingError("Error fetchign challenges")
+            throw DatabaseErrors.FetchingError("Error fetching challenges")
         }
         
         while(sqlite3_step(fetchStatement) == SQLITE_ROW) {
@@ -29,6 +29,7 @@ class DatabaseChallengeFetcher {
             let date = String(cString: sqlite3_column_text(fetchStatement, 4))
             
             let fetchedChallenge = Challenge(accountID: fetchedAccountID, name: name, currentProgress: currentProgress, goal: goal, date: date)
+            challengeList.append(fetchedChallenge)
         }
         
         return challengeList

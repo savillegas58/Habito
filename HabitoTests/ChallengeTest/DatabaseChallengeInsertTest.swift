@@ -26,6 +26,22 @@ final class DatabaseChallengeInsertTest: XCTestCase {
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: test as String)
         
-        XCTAssertNoThrow(try DatabaseChallengeInserter.challengeInserter.insertChallengeIntoAccount(accountID: (fetchedAccount?.ID)!, name: "challenge", currentProgress: 1, goal: 1, date: "12-12-12"))    }
+        XCTAssertNoThrow(try DatabaseChallengeInserter.challengeInserter.insertChallengeIntoAccount(accountID: (fetchedAccount?.ID)!, name: "challenge", currentProgress: 1, goal: 1, date: "12-12-12"))
+    }
+    
+    func test() throws {
+        let test : NSString = "test"
+        try DatabaseAccountInserter.accountInserter.insertAccount(username: test, password: test, phoneNumber: test, email: test)
+        
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: test as String)
+
+        let accountID = fetchedAccount?.ID
+        
+        try DatabaseChallengeInserter.challengeInserter.insertChallengeIntoAccount(accountID: accountID!, name: "c", currentProgress: 0, goal: 0, date: "12-12-12")
+        
+        let fetchedChallenges = try DatabaseChallengeFetcher.challengeFetcher.fetchAccountsChallenges(accountID: accountID!)
+        
+        XCTAssertEqual(fetchedChallenges.count, 1)
+    }
 
 }

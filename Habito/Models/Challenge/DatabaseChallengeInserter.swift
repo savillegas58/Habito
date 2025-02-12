@@ -24,7 +24,7 @@ class DatabaseChallengeInserter {
             sqlite3_bind_text(insertionStatement, 5, (date as NSString).utf8String, -1, nil)
             
             if sqlite3_step(insertionStatement) == SQLITE_DONE {
-                print("challenge insserted succssfully")
+                print("challenge inserted succssfully")
             } else {
                 throw DatabaseErrors.InsertionError("Error Inserting challenge")
             }
