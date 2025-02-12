@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct HabitoApp: App {
+    let initializeDatabase = InitialViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
