@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct Onboarding3: View {
+    @State var isLoggedIn : Bool = false
+    @State var showSignIn : Bool = false
     var body: some View {
         VStack{
+            if showSignIn {
+                SignUpView()
+            } else {
             HStack {
                 Text("Welcome to")
                     .font(.title)
@@ -24,7 +29,8 @@ struct Onboarding3: View {
                 .bold()
                 .foregroundStyle(.gray)
             Button("GET STARTED", action: {
-                
+                print("GET STARTED pressed")
+                self.showSignIn = true
             })
             .frame(width: 300, height: 50)
             .background(.darkGreen)
@@ -38,6 +44,7 @@ struct Onboarding3: View {
                     .bold()
                     .foregroundStyle(.darkGreen)
             }
+        }
         }
     }
 }
