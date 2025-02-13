@@ -9,11 +9,14 @@ import SwiftUI
 
 struct Onboarding3: View {
     @State var isLoggedIn : Bool = false
+    @State var showSignUp : Bool = false
     @State var showSignIn : Bool = false
     var body: some View {
         VStack{
-            if showSignIn {
+            if showSignUp {
                 SignUpView()
+            } else if showSignIn{
+                SignInView(isLoggedIn: $isLoggedIn)
             } else {
             HStack {
                 Text("Welcome to")
@@ -30,7 +33,7 @@ struct Onboarding3: View {
                 .foregroundStyle(.gray)
             Button("GET STARTED", action: {
                 print("GET STARTED pressed")
-                self.showSignIn = true
+                self.showSignUp = true
             })
             .frame(width: 300, height: 50)
             .background(.darkGreen)
@@ -40,9 +43,14 @@ struct Onboarding3: View {
             .padding()
             HStack {
                 Text("Already have and account?")
-                Text("Sign in")
-                    .bold()
-                    .foregroundStyle(.darkGreen)
+                Button(action: {
+                    print("Sign in pressed.")
+                    self.showSignIn = true
+                }){
+                    Text("Sign In")
+                }
+                .bold()
+                .foregroundStyle(.darkGreen)
             }
         }
         }
