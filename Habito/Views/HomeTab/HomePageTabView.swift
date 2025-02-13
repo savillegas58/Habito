@@ -13,7 +13,7 @@ struct HomePageTabView: View {
         ScrollView{
             DailyHabitsTrackerHomeCardView()
                 .padding(.bottom, 10)
-            DailyHabitsChallengeCardView()
+            DailyHabitsChallengeHomeCardView()
                 .padding(.bottom, 10)
             HealthyRecipesCardView()
 

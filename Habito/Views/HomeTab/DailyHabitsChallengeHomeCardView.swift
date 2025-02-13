@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DailyHabitsChallengeCardView: View {
+struct DailyHabitsChallengeHomeCardView: View {
     var title: String?
     var currentDay: Int?
     var totalDays: Int?
@@ -16,7 +16,7 @@ struct DailyHabitsChallengeCardView: View {
     var body: some View {
         
         VStack{
-            NavigationLink(destination: Text("Test")) {
+            NavigationLink(destination: DailyHabitsChallengeView()) {
                 HStack{
                     Text("30 Days of healthy habits")
                     Spacer()
@@ -60,5 +60,5 @@ struct DailyHabitsChallengeCardView: View {
 }
 
 #Preview {
-    DailyHabitsChallengeCardView()
+    DailyHabitsChallengeHomeCardView()
 }
