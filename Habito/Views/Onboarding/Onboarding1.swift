@@ -8,35 +8,69 @@
 import SwiftUI
 
 struct Onboarding1: View {
+    @State var showViewTwo = false
+    
     var body: some View {
-        VStack{
-            HStack{
-                Text("Start a")
+        if !showViewTwo {
+            VStack{
+                HStack{
+                    Spacer()
+                    Button("Skip", action: {
+                        //TODO: this functionalilty and appearance
+                    }).padding()
+                        .foregroundStyle(.darkGreen)
+                }
+                HStack{
+                    Text("Start a")
+                        .bold()
+                    Text("healthy life")
+                        .bold()
+                        .foregroundStyle(.darkGreen)
+                    Text("today!")
+                        .bold()
+                }.padding()
+                Text("Track your habits, share your")
                     .bold()
-                Text("healthy life")
+                    .foregroundStyle(.gray)
+                Text("accomplishemnts, and get support")
                     .bold()
-                    .foregroundStyle(.darkGreen)
-                Text("today!")
+                    .foregroundStyle(.gray)
+                Text("from your community.")
                     .bold()
-            }.padding()
-            Text("Track your habits, share your")
-                .bold()
-                .foregroundStyle(.gray)
-            Text("accomplishemnts, and get support")
-                .bold()
-                .foregroundStyle(.gray)
-            Text("from your community.")
-                .bold()
-                .foregroundStyle(.gray)
-            Button(action: {
-                
-            }) {
-                Image(systemName: "arrow.right")
+                    .foregroundStyle(.gray)
             }
+            //once there's an image this will hopefully fix the spacing
+            Spacer()
+            HStack{
+                Spacer()
+                ArrowButton(showViewTwo: $showViewTwo)
+            }
+        } else {
+            Onboarding2()
         }
     }
 }
 
+struct ArrowButton: View {
+    @Binding var showViewTwo : Bool
+    var body : some View {
+        Button(action: {
+            print("Arrow button pushed")
+            showViewTwo = true
+        }) {
+            Image(systemName: "arrow.right")
+                .resizable()
+                .scaledToFit()
+                .foregroundStyle(.grayishWhite)
+                .frame(width: 30, height: 70)
+                .padding()
+        }.background(
+            Circle()
+                .fill(.customDarkGray)
+                .frame(width: 70, height: 70)
+        ).padding()
+    }
+}
 #Preview {
     Onboarding1()
 }
