@@ -36,8 +36,8 @@ class DatabaseFoundation {
     ///no return
     ///Throws: DatabaseErrors (type is depedent on the which table creation method failed)
     ///creates tables for accounts, habits, +++ in the databse
-    //TODO: finihs the rest of the table creation methods
     private func createTables() throws {
+        //try resetDatabase() //only unccomment if you need to clear all table data
         try createAccountTable()
         try createHabitTable()
         try createChallengeTable()
@@ -95,13 +95,24 @@ class DatabaseFoundation {
     ///throws: tabelCreationError
     ///creates a table for stroing recipes with the columns anme, ingridients, suggestions, timeInMinutes, calories, and rating
     ///recipes are not assocaited with accounts
-    //TODO: rename suggesstions to instructions
+
     private func createRecipeTable() throws {
         let recipeTableCreationStatment = "CREATE TABLE IF NOT EXISTS recipe(name TEXT, ingredients TEXT, instructions TEXT, suggestions TEXT, timeInMinutes INTEGER, calories INTEGER, rating INTEGER)"
         
         if sqlite3_exec(db, recipeTableCreationStatment, nil, nil, nil) != SQLITE_OK {
             let errorMessage = String(cString: sqlite3_errmsg(db)!)
             throw DatabaseErrors.TableCreationError("Error creating recipe table in database: " + errorMessage)
+        }
+    }
+    
+    private func resetDatabase() throws {
+        let dropQueries = ["DROP TABLE IF EXISTS recipe", "DROP TABLE IF EXISTS account", "DROP TABLE IF EXISTS challenge", "DROP TABLE IF EXISTS habit"]
+        
+        for query in dropQueries {
+            if sqlite3_exec(db, query, nil, nil, nil) != SQLITE_OK {
+                let errorMessage = String(cString: sqlite3_errmsg(db)!)
+                throw DatabaseErrors.TableDeletionError("Failed to delete table: " + errorMessage)
+            }
         }
     }
     

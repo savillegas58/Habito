@@ -13,6 +13,8 @@ class SignUpViewModel {
     func createAccount(username: String, email: String, phoneNumber: String, password: String) {
         do {
             try DatabaseAccountInserter.accountInserter.insertAccount(username: username, password: password, phoneNumber: phoneNumber, email: email)
+            let createdAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: username)
+            createdAccountID = createdAccount?.ID
         } catch {
             print("Encountered database error when attempting to create acount: \(error)")
             return
@@ -20,6 +22,12 @@ class SignUpViewModel {
         populateDefaultHabits()
         populateDefaultChallenges()
         print("Account successfully added.")
+        //TODO: Add the account id to user defaults or something so its accessible everywhere, becase yyou need it to query habits and stuff
+        persistAccountID()
+    }
+    
+    func persistAccountID() {
+        //TODO: this
     }
     
     //this is is just placeholder data for now
