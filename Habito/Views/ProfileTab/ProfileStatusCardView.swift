@@ -10,16 +10,21 @@ import SwiftUI
 struct ProfileStatusCardView: View {
     var message : String?
     var subMessage : String?
+    var image: UIImage?
     var body: some View {
         VStack{
-            Text(message ?? "Temp")
+            Image(uiImage: image ?? UIImage(systemName: "person.circle")!)
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.gray)
+            Text(message ?? "10hr 20min")
                 .font(.headline)
-            Text(subMessage ?? "Temp2")
+            Text(subMessage ?? "Training time")
                 .font(.subheadline)
         } .overlay{
             RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.gray, lineWidth: 0.1)
-                .frame(width: 100, height: 100)
+                .stroke(Color.gray, lineWidth: 0.25)
+                .frame(width: 110, height: 110)
         }
         
         

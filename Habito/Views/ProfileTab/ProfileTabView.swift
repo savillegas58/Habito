@@ -10,11 +10,29 @@ import SwiftUI
 struct ProfileTabView: View {
     @State var username : String = "SD"
     @Binding var isLoggedIn : Bool
+    var image : UIImage?
     var body: some View {
        
         
         VStack{
             //ProfileStatusCardView()
+            Spacer()
+            Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+                .resizable()
+                .clipShape(Circle())
+                .scaledToFill()
+                .frame(width: 120, height: 120)
+            
+            HStack{
+                Spacer()
+                ProfileStatusCardView()
+                Spacer()
+                ProfileStatusCardView()
+                Spacer()
+                ProfileStatusCardView()
+                Spacer()
+            }
+            .padding(.top, 50)
             
             List {
 
@@ -60,12 +78,14 @@ struct ProfileTabView: View {
                     
                     
                 }
+                
                 .listRowSeparator(.hidden)
                 .padding()
+                
 
             
             }.scrollDisabled(true)
-            
+            .scrollContentBackground(.hidden)
         }.navigationTitle("Your Profile").navigationBarTitleDisplayMode(.inline)
         
     }
