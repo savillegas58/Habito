@@ -10,6 +10,7 @@ import Foundation
 enum DatabaseErrors :  Error {
     case DatabaseCreationError(String)
     case TableCreationError(String)
+    case TableDeletionError(String)
     case InsertionError(String)
     case FetchingError(String)
     case DeletionError(String)
