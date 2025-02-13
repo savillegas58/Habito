@@ -9,14 +9,19 @@ import SwiftUI
 
 struct Onboarding1: View {
     @State var showViewTwo = false
+    @State var showViewThree = false
     
     var body: some View {
-        if !showViewTwo {
+        if showViewTwo {
+            Onboarding2()
+        } else if showViewThree  {
+            Onboarding3()
+        } else {
             VStack{
                 HStack{
                     Spacer()
                     Button("Skip", action: {
-                        //TODO: this functionalilty and appearance
+                        showViewThree = true
                     }).padding()
                         .foregroundStyle(.darkGreen)
                 }
@@ -45,8 +50,6 @@ struct Onboarding1: View {
                 Spacer()
                 ArrowButton(showViewTwo: $showViewTwo)
             }
-        } else {
-            Onboarding2()
         }
     }
 }
