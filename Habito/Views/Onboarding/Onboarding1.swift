@@ -28,6 +28,11 @@ struct Onboarding1: View {
             Text("from your community.")
                 .bold()
                 .foregroundStyle(.gray)
+            Button(action: {
+                
+            }) {
+                Image(systemName: "arrow.right")
+            }
         }
     }
 }
