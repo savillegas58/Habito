@@ -23,6 +23,21 @@ struct Onboarding3: View {
             Text("progress, and stay motivated every day.")
                 .bold()
                 .foregroundStyle(.gray)
+            Button("GET STARTED", action: {
+                
+            })
+            .frame(width: 300, height: 50)
+            .background(.darkGreen)
+            .foregroundStyle(.grayishWhite)
+            .bold()
+            .cornerRadius(15)
+            .padding()
+            HStack {
+                Text("Already have and account?")
+                Text("Sign in")
+                    .bold()
+                    .foregroundStyle(.darkGreen)
+            }
         }
     }
 }
