@@ -12,7 +12,8 @@ struct ContentView: View {
     @State var isLoggedIn : Bool = false
     var body: some View {
         if !isLoggedIn {
-            SignInView(isLoggedIn: $isLoggedIn)
+            //SignInView(isLoggedIn: $isLoggedIn)
+            Onboarding3(isLoggedIn: isLoggedIn)
         } else{
             MainTabView(isLoggedIn: $isLoggedIn)
         }
