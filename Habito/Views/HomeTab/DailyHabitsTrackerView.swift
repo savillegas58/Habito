@@ -10,13 +10,16 @@ import SwiftUI
 struct DailyHabitsTrackerView: View {
     var body: some View {
 
-        VStack{
+        VStack{   
             HabitCard()
                 .padding(.bottom, 20)
+
             HabitCard(message: "Example Message",subMessage: "5/8 Glass" ,percentageProgress: 30, image: UIImage(systemName: ""))
                 .padding(.bottom, 20)
+
             HabitCard()
                 .padding(.bottom, 20)
+
             HabitCard()
         }
     }

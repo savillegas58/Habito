@@ -39,6 +39,7 @@ struct SignInView: View {
                 .padding(.bottom)
                 .padding(.leading)
                 .padding(.trailing)
+
             Button("Login", action: {
                 //check to make sure all text entries have been filled out
 
@@ -54,6 +55,7 @@ struct SignInView: View {
             .bold()
             .cornerRadius(15)
             .padding()
+
             
         }
     }

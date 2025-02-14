@@ -63,7 +63,6 @@ struct SignUpView: View {
                     print("pressed sign up")
                     //TODO: input validation
                     signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
-
                     isLoggedIn = true
                 })
                 .frame(maxWidth: .infinity, minHeight: 50)        .background(Color.darkGreen)
