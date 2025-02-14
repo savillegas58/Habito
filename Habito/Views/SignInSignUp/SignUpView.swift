@@ -18,10 +18,6 @@ struct SignUpView: View {
     @Binding var isLoggedIn : Bool
     
     var body: some View {
-        if shouldEnterApp {
-            //the true her emay need to change idk
-            MainTabView(isLoggedIn: $isLoggedIn)
-        } else {
             VStack{
                 Text("Create Account")
                     .padding(.bottom)
@@ -67,7 +63,8 @@ struct SignUpView: View {
                     print("pressed sign up")
                     //TODO: input validation
                     signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
-                    shouldEnterApp = true
+
+                    isLoggedIn = true
                 })
                 .frame(maxWidth: .infinity, minHeight: 50)        .background(Color.darkGreen)
                 .foregroundStyle(.grayishWhite)
@@ -77,7 +74,6 @@ struct SignUpView: View {
                 
             }.frame(maxHeight: .infinity, alignment: .top)
                 .padding(.top, 20)
-        }
     }
 }
 
