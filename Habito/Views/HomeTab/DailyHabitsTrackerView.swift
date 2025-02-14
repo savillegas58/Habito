@@ -17,6 +17,7 @@ struct DailyHabitsTrackerView: View {
                 HabitCard(message: habit.name, subMessage: "\(habit.currentProgress!)/\(habit.goal!)", percentageProgress: calculatePercentageProgress(currentProgress: habit.currentProgress!, goal: habit.goal!), image: UIImage(systemName: ""))
                     .padding(.bottom, 20)
             }
+
         }
     }
 }
