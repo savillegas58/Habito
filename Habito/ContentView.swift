@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         if !isLoggedIn {
             //SignInView(isLoggedIn: $isLoggedIn)
-            Onboarding1()
+            Onboarding3(isLoggedIn: $isLoggedIn)
         } else{
             MainTabView(isLoggedIn: $isLoggedIn)
         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Onboarding3: View {
-    @State var isLoggedIn : Bool = false
+    @Binding var isLoggedIn : Bool// = false
     @State var showSignUp : Bool = false
     @State var showSignIn : Bool = false
     var body: some View {
@@ -58,5 +58,5 @@ struct Onboarding3: View {
 }
 
 #Preview {
-    Onboarding3()
+    //Onboarding3()
 }

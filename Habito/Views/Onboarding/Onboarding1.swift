@@ -15,7 +15,7 @@ struct Onboarding1: View {
         if showViewTwo {
             Onboarding2()
         } else if showViewThree  {
-            Onboarding3()
+            //Onboarding3()
         } else {
             VStack{
                 HStack{
