@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Habit {
+class Habit: Identifiable {
     var accountID : Int? //foregin key to owner account
     var name : String?
     var currentProgress : Int?
