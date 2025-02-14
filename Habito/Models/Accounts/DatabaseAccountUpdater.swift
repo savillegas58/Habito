@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseAccountUpdater {
     static var accountUpdater = DatabaseAccountUpdater()
     
+    private init() {}
+    
     ///updateAccountUsername(suername: newUsername:)
     ///arguments:
     ///returns nothing

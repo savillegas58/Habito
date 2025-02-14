@@ -12,6 +12,8 @@ class DatabaseChallengeFetcher {
     static var challengeFetcher = DatabaseChallengeFetcher()
     private var challengeList = [Challenge]()
     
+    private init(){}
+    
     func fetchAccountsChallenges(accountID: Int) throws -> [Challenge]{
         let db = DatabaseFoundation.databaseFoundation.db
         let fetchQuery = "SELECT * FROM challenge WHERE accountID = '\(accountID)'"

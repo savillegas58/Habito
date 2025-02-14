@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseHabitInserter {
     static var habitInserter = DatabaseHabitInserter()
     
+    private init(){}
+    
     //TODO: ADD COMMENT ABOUT THE FOEEGIN KEY STUFF
     func insertHabit(accountID : Int, name : String, currentProgress : Int, goal : Int) throws {
         var insertStatement : OpaquePointer?

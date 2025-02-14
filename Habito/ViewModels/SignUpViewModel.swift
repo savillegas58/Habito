@@ -22,12 +22,12 @@ class SignUpViewModel {
         populateDefaultHabits()
         populateDefaultChallenges()
         print("Account successfully added.")
-        //TODO: Add the account id to user defaults or something so its accessible everywhere, becase yyou need it to query habits and stuff
+        //persisting the accontID here will be unessesary if we transition from sing up to the log in screen, but otherwise it will need to be done
         persistAccountID()
     }
     
     func persistAccountID() {
-        //TODO: this
+        UserDefaults.standard.set(createdAccountID, forKey: "currentAccountID")
     }
     
     //this is is just placeholder data for now
