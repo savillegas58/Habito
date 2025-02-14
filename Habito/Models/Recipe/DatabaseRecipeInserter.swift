@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseRecipeInserter {
     static var recipeInserter = DatabaseRecipeInserter()
     
+    private init() {}
+    
     func insertRecipe(name: String, ingredients: String, instructions : String, suggestions: String, timeInMinutes: Int, calories: Int, rating: Int) throws {
         var insertStatement : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db

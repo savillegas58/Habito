@@ -12,6 +12,8 @@ class DatabaseRecipeFetcher {
     static var recipeFetcher = DatabaseRecipeFetcher()
     var recipeList = [Recipe]()
     
+    private init() {}
+    
     func fetchAllRecipes() throws -> [Recipe] {
         recipeList.removeAll()
         

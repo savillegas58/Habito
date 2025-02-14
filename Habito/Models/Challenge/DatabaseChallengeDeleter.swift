@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseChallengeDeleter {
     static var challengeDeleter = DatabaseChallengeDeleter()
     
+    private init(){}
+    
     func deleteAllChallengesFromAccount(accountID: Int) throws {
         let db = DatabaseFoundation.databaseFoundation.db
         let deleteQuery = "DELETE FROM challenge WHERE accountID = '\(accountID)'"

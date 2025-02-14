@@ -11,6 +11,7 @@ import SQLite3
 class DatabaseAccountInserter {
     static var accountInserter = DatabaseAccountInserter()
     
+    private init(){}
 
     ///insertAccount(username: passsword: phoneNumber: email)
     ///arguments username, password, phonenumber, and email. All are of type NSString.

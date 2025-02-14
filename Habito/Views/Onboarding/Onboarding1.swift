@@ -10,12 +10,13 @@ import SwiftUI
 struct Onboarding1: View {
     @State var showViewTwo = false
     @State var showViewThree = false
+    @Binding var isLoggedIn : Bool
     
     var body: some View {
         if showViewTwo {
-            Onboarding2()
+            Onboarding2(isLoggedIn: $isLoggedIn)
         } else if showViewThree  {
-            Onboarding3()
+            Onboarding3(isLoggedIn: $isLoggedIn)
         } else {
             VStack{
                 HStack{
@@ -75,5 +76,5 @@ struct ArrowButton: View {
     }
 }
 #Preview {
-    Onboarding1()
+    //Onboarding1()
 }

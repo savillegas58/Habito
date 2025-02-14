@@ -11,6 +11,9 @@ import SQLite3
 class DatabaseAccountDeleter {
     static var accountDeleter = DatabaseAccountDeleter()
     
+    
+    private init(){}
+    
     ///deleteAllAccounts
     ///no arguments
     ///no return

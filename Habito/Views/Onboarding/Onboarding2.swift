@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Onboarding2: View {
     @State var showViewThree = false
+    
+    @Binding var isLoggedIn : Bool
     var body: some View {
         if showViewThree {
-            //this flase might need to chagne?
-            Onboarding3(showSignIn: false)
+            Onboarding3(isLoggedIn: $isLoggedIn)
         } else {
             VStack{
                 HStack{
@@ -65,5 +66,5 @@ struct ArrowButton2: View {
     }
 }
 #Preview {
-    Onboarding2()
+    //Onboarding2()
 }

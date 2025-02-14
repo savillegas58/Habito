@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseRecipeDeleter {
     static var recipeDeleter = DatabaseRecipeDeleter()
     
+    private init() {}
+    
     func deleteAllRecipies() throws {
         var deleteStatement : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db
