@@ -12,6 +12,8 @@ class DatabaseAccountFetcher {
     static var accountFetcher = DatabaseAccountFetcher()
     var accountList = [Account]()
     
+    private init() {}
+    
     ///fetchAllAccounts()
     ///no arguments
     ///returns an array of Account objects

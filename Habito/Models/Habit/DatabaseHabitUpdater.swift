@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseHabitUpdater {
     static var habitUpdater = DatabaseHabitUpdater()
     
+    private init(){}
+    
     //TODO: habit names are not enforced to be unique, should they be?
     ///
     func updateAccountHabitProgress(accountID: Int, habitName: String, newProgress: Int) throws {

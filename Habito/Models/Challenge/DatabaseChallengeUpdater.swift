@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseChallengeUpdater {
     static var challengeUpdater = DatabaseChallengeUpdater()
     
+    private init(){}
+    
     func updateAccountChallengeProgress(accountID: Int, challengeName: String, newProgress: Int) throws {
         let updateQuery = "UPDATE challenge SET currentProgress = '\(newProgress)' WHERE accountID = '\(accountID)' AND name = '\(challengeName)'"
         let db = DatabaseFoundation.databaseFoundation.db

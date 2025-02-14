@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseHabitDeleter {
     static var habitDeleter = DatabaseHabitDeleter()
     
+    private init() {}
+    
     func deleteAllHabitsFromAccount(accountID: Int) throws {
         let db = DatabaseFoundation.databaseFoundation.db
         let deleteQuery = "DELETE FROM habit WHERE accountID = '\(accountID)'"

@@ -40,7 +40,12 @@ struct SignInView: View {
                 .padding(.leading)
                 .padding(.trailing)
             Button("Login"){
-                isLoggedIn = true
+                //check to make sure all text entries have been filled out
+                if SignInViewModel.signInViewModel.providedCredentialAreValid(username: username, password: password) {
+                    isLoggedIn = true
+                } else {
+                    //dispaly seom sort of notificaton
+                }
             }
                 .buttonStyle(.borderedProminent)
             

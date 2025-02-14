@@ -11,6 +11,8 @@ import SQLite3
 class DatabaseChallengeInserter {
     static var challengeInserter = DatabaseChallengeInserter()
     
+    private init(){}
+    
     func insertChallengeIntoAccount(accountID: Int, name: String, currentProgress: Int, goal: Int, date: String) throws {
         let db = DatabaseFoundation.databaseFoundation.db
         let insertionQuery = "INSERT INTO challenge(accountID, name, currentProgress, goal, date) VALUES (?,?,?,?,?)"
