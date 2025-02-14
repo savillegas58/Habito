@@ -14,7 +14,7 @@ struct Onboarding3: View {
     var body: some View {
         VStack{
             if showSignUp {
-                SignUpView()
+                SignUpView(isLoggedIn: $isLoggedIn)
             } else if showSignIn{
                 SignInView(isLoggedIn: $isLoggedIn)
             } else {
