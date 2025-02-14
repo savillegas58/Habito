@@ -39,15 +39,21 @@ struct SignInView: View {
                 .padding(.bottom)
                 .padding(.leading)
                 .padding(.trailing)
-            Button("Login"){
+            Button("Login", action: {
                 //check to make sure all text entries have been filled out
+
                 if SignInViewModel.signInViewModel.providedCredentialAreValid(username: username, password: password) {
                     isLoggedIn = true
                 } else {
                     //dispaly seom sort of notificaton
                 }
-            }
-                .buttonStyle(.borderedProminent)
+            })
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .background(Color.darkGreen)
+            .foregroundStyle(.grayishWhite)
+            .bold()
+            .cornerRadius(15)
+            .padding()
             
         }
     }

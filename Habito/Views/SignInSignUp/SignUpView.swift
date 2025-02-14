@@ -60,7 +60,7 @@ struct SignUpView: View {
                 //TODO: input validation
                 signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
             })
-            .frame(width: 300, height: 50)        .background(Color.darkGreen)
+            .frame(maxWidth: .infinity, minHeight: 50)        .background(Color.darkGreen)
             .foregroundStyle(.grayishWhite)
             .bold()
             .cornerRadius(15)

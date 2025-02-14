@@ -26,7 +26,7 @@ class SignUpViewModel {
         persistAccountID()
     }
     
-    func persistAccountID() {
+    private func persistAccountID() {
         UserDefaults.standard.set(createdAccountID, forKey: "currentAccountID")
     }
     
