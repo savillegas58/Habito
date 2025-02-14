@@ -55,16 +55,20 @@ struct SignUpView: View {
 
                 .padding(.leading)
                 .padding(.trailing)
-            Button("Sign Up", action:{
+
+            Button{
                 print("pressed sign up")
                 //TODO: input validation
                 signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
-            })
-            .frame(width: 300, height: 50)        .background(Color.darkGreen)
-            .foregroundStyle(.grayishWhite)
-            .bold()
-            .cornerRadius(15)
-            .padding()
+            }label:{
+                Text("Sign Up")
+                    .frame(width: 300, height: 50)
+                    .background(Color.darkGreen)
+                    .foregroundStyle(.grayishWhite)
+                    .bold()
+                    .cornerRadius(15)
+                    .padding()
+            }
             
         }.frame(maxHeight: .infinity, alignment: .top)
             .padding(.top, 20)

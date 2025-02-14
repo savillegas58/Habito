@@ -39,10 +39,18 @@ struct SignInView: View {
                 .padding(.bottom)
                 .padding(.leading)
                 .padding(.trailing)
-            Button("Login"){
+            Button{
                 isLoggedIn = true
+            }label:{
+                Text("Login")
+                    .frame(width: 300, height: 50)
+                    .background(Color.darkGreen)
+                    .foregroundStyle(.grayishWhite)
+                    .bold()
+                    .cornerRadius(15)
+                    .padding()
+                
             }
-                .buttonStyle(.borderedProminent)
             
         }
     }

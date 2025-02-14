@@ -13,49 +13,60 @@ struct HabitCard: View {
     var percentageProgress: Int?
     var image: UIImage?
     var body: some View {
-        ZStack{
+        NavigationLink(destination: HabitDetailsView(progress: 5)){
             
-            Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 350, height: 100)
-                .cornerRadius(15)
-                .opacity(0.8)
-            
-            HStack{
-                Image(systemName: "arrow.triangle.2.circlepath")
-                
-                VStack{
+                ZStack{
+                    
+                    Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 350, height: 100)
+                        .cornerRadius(15)
+                        .opacity(0.8)
+
+                    
                     HStack{
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .foregroundColor(.black)
+                        
                         VStack{
-                            Text(message ?? "Drinking")
-                            Text(subMessage ?? "3/8Glass")
+                            HStack{
+                                VStack{
+                                    Text(message ?? "Drinking")
+                                        .foregroundColor(.black)
+                                    Text(subMessage ?? "3/8Glass")
+                                        .foregroundColor(.black)
+                                }
+                                
+                                Spacer()
+                                Image(systemName: "chevron.right.circle")
+                                    .font(.title2)
+                                    .foregroundColor(.darkGreen)
+          
+                                
+                            }
+                            .padding(.leading, 10)
+                            .padding(.trailing, 40)
+                            ProgressView(value: Double((percentageProgress ?? 100))/100.0)
+                                .scaleEffect(x: 1, y: 2.5)
+                                .padding(.leading, 10)
+                                .padding(.trailing,50)
+                                .tint(.darkGreen)
                         }
-                        
-                        Spacer()
-                        Image(systemName: "chevron.right.circle")
-                            .font(.title2)
-                            .foregroundColor(.darkGreen)
-  
-                        
+                        .padding(.top, 15)
+
                     }
-                    .padding(.leading, 10)
-                    .padding(.trailing, 40)
-                    ProgressView(value: Double((percentageProgress ?? 100))/100.0)
-                        .scaleEffect(x: 1, y: 2.5)
-                        .padding(.leading, 10)
-                        .padding(.trailing,50)
-                        .tint(.darkGreen)
+                    .padding(.leading, 50)
+
+
                 }
-                .padding(.top, 15)
-
-            }
-            .padding(.leading, 50)
-
             
-                
-
         }
+  
+
+        
+        
+        
     }
 }
 
