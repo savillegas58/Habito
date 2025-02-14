@@ -33,10 +33,10 @@ class SignUpViewModel {
     //this is is just placeholder data for now
     private func populateDefaultHabits() {
         do {
-            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "habit 1", currentProgress: 0, goal: 10)
-            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "habit 2", currentProgress: 0, goal: 10)
-            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "habit 3", currentProgress: 0, goal: 10)
-            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "habit 4", currentProgress: 0, goal: 10)
+            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "Drinking", currentProgress: 0, goal: 8)
+            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "Walking", currentProgress: 0, goal: 10)
+            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "Sleep", currentProgress: 0, goal: 8)
+            try DatabaseHabitInserter.habitInserter.insertHabit(accountID: createdAccountID!, name: "Exercise", currentProgress: 0, goal: 20)
         } catch {
             print("Encountered database error when attemping to add default habits to new account: \(error)")
             return

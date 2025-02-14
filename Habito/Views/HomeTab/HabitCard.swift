@@ -10,7 +10,7 @@ import SwiftUI
 struct HabitCard: View {
     var message: String?
     var subMessage: String?
-    var percentageProgress: Int?
+    var percentageProgress: Double?
     var image: UIImage?
     var body: some View {
         NavigationLink(destination: HabitDetailsView(progress: 5)){

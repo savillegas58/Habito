@@ -8,6 +8,9 @@
 import Foundation
 
 class HabitViewModel {
+    static var habitFetcher = HabitViewModel()
+    
+    private init(){}
     
     func getCurrentAccountHabits() -> [Habit] {
         let currentAccountID = UserDefaults.standard.integer(forKey: "currentAccountID");
@@ -18,9 +21,6 @@ class HabitViewModel {
         } catch {
             print("Error fetching account habits in HabitViewModel.")
         }
-        //testing
-        print("fetch habits: " + String(currentAccountHabits.count))
-        //
         return currentAccountHabits
     }
     
