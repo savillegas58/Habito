@@ -38,7 +38,7 @@ class DataAnalyzer {
         return totalSteps
     }
     
-    func calcualteSleep() -> Int{
+    func calculateSleep() -> Int{
         var totalSleepHours = 0
         
         for habit in sleepingHabitList {
