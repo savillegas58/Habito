@@ -27,7 +27,7 @@ struct CustomTabBar: View {
                     }
                 case 1:
                     NavigationView{
-                        Text("New View")
+                        QuickGuideView()
                     }
                 case 2:
                     NavigationView{
