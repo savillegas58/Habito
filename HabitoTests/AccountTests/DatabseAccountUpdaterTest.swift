@@ -55,7 +55,9 @@ final class DatabseAccountUpdaterTest: XCTestCase {
     func testUpdateAccountPhoneNUmber_accountUpdated_accountPasswordUpadted() throws {
         let newPhoneNumber = "111-111-1111"
         try populateDataBaseWithAccounts(numberOfAccounts: 1)
-        try DatabaseAccountUpdater.accountUpdater.updateAccountPhoneNumber(username: "test: 0", newPhonenumber: newPhoneNumber)
+        
+        let oldFetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        try DatabaseAccountUpdater.accountUpdater.updateAccountPhoneNumber(accountID: (oldFetchedAccount?.ID)!, newPhonenumber: newPhoneNumber)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         
@@ -65,7 +67,9 @@ final class DatabseAccountUpdaterTest: XCTestCase {
     func testUpdateAccountEmail_accountUpdated_accountEmailUpdated() throws {
         let newEmail = "new@new.com"
         try populateDataBaseWithAccounts(numberOfAccounts: 1)
-        try DatabaseAccountUpdater.accountUpdater.updateAccountEmail(username: "test: 0", newEmail: newEmail)
+        
+        let oldFetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        try DatabaseAccountUpdater.accountUpdater.updateAccountEmail(accountID: (oldFetchedAccount?.ID)!, newEmail: newEmail)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username:
         "test: 0")
@@ -76,7 +80,9 @@ final class DatabseAccountUpdaterTest: XCTestCase {
     func testUpdateAccountProfilePictureLink_accountUpdated_accountProfilePictureUpdated() throws {
         let newProfilePictureLink = "test.jpg"
         try populateDataBaseWithAccounts(numberOfAccounts: 1)
-        try DatabaseAccountUpdater.accountUpdater.updateAccountProfilePictureLink(username: "test: 0", newProfilePictureLink: newProfilePictureLink)
+        
+        let oldFetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        try DatabaseAccountUpdater.accountUpdater.updateAccountProfilePictureLink(accountID: (oldFetchedAccount?.ID)!, newProfilePictureLink: newProfilePictureLink)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         
