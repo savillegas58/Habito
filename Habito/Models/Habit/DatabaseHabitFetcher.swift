@@ -14,14 +14,25 @@ class DatabaseHabitFetcher {
     
     private init(){}
     
-    //TODO: FETCH INDIVIDUAL?
-    
     func fetchAccountHabits(accountID: Int) throws -> [Habit] {
         habitList.removeAll()
-        
+    
+        let habitQuery = "SELECT * FROM habit WHERE accountID = '\(accountID)'"
+        try executeHabitFetch(habitQuery: habitQuery)
+
+        return habitList
+    }
+    
+    func fetchWalkingHabits(accountID: Int) throws -> [Habit] {
+        habitList.removeAll()
+        let habitQuery = "SELECT * FROM habit WHERE accountID = '\(accountID)' AND type = 'walking'"
+        try executeHabitFetch(habitQuery: habitQuery)
+        return habitList
+    }
+    
+    private func executeHabitFetch(habitQuery: String) throws {
         var habitStatement : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db
-        let habitQuery = "SELECT * FROM habit WHERE accountID = '\(accountID)'"
         
         if sqlite3_prepare_v2(db, habitQuery, -1, &habitStatement, nil) != SQLITE_OK{
             throw DatabaseErrors.FetchingError("Error fetching account's habits.")
@@ -37,6 +48,5 @@ class DatabaseHabitFetcher {
             let fetchedHabit = Habit(accountID: accountID, name: name, currentProgress: currentProgress, goal: goal, type: typeAsEnum!)
             habitList.append(fetchedHabit)
         }
-        return habitList
     }
 }
