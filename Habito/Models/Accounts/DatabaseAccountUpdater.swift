@@ -17,14 +17,14 @@ class DatabaseAccountUpdater {
     ///arguments:
     ///returns nothing
     ///throws DatabseErros.UpdateError
-    func updateAccountUsername(username: String, newUsername: String) throws {
-        let updateQuery = "UPDATE account SET username = '\(newUsername)' WHERE username = '\(username)'"
+    func updateAccountUsername(accountID: Int, newUsername: String) throws {
+        let updateQuery = "UPDATE account SET username = '\(newUsername)' WHERE accountID = '\(accountID)'"
         try executeUpdateQuery(updateQuery: updateQuery)
     }
     
     ///
-    func updateAccountPassword(username: String, password: String) throws {
-        let updateQuery = "UPDATE account SET password = '\(password)' WHERE username = '\(username)'"
+    func updateAccountPassword(accountID: Int, password: String) throws {
+        let updateQuery = "UPDATE account SET password = '\(password)' WHERE accountID = '\(accountID)'"
         try executeUpdateQuery(updateQuery: updateQuery)
     }
     
