@@ -77,7 +77,7 @@ struct SignUpView: View {
 }
 
 #Preview {
-    @State var login = false
+    @Previewable @State var login = false
     
     SignUpView(isLoggedIn: $login)
 }

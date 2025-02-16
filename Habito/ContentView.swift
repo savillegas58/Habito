@@ -16,7 +16,7 @@ struct ContentView: View {
             Onboarding1(isLoggedIn: $isLoggedIn)
 
         } else{
-            MainTabView(isLoggedIn: $isLoggedIn)
+            CustomTabBar(isLoggedIn: $isLoggedIn)
         }
     }
 }

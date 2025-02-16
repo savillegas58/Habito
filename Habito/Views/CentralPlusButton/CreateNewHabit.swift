@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateNewHabit: View {
+    @Binding var showPlusView: Bool
     @State private var selectedActivity: String? = nil
     @State private var selectedTime: String? = nil
     @State private var habitTitle: String = ""
@@ -24,10 +25,28 @@ struct CreateNewHabit: View {
                     .shadow(radius: 3)
                 VStack{
                     Spacer()
+                    HStack{
+                        Text("Create New Habit")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding(.leading, 25)
+                        Button(action: {
+                            withAnimation {
+                                showPlusView.toggle()
+                            }
+                        }){
+                            Image(systemName: "xmark")
+                                .font(.title2)
+                                .foregroundColor(.black)
+                        }
+                    }   .padding(.horizontal, 25)
+                        .padding(.top, 70)
+
+
                     TextField("Habit Title", text: $habitTitle)
                         .frame(maxWidth: .infinity)
                         .padding(.horizontal, 25)
-                        .padding(.top, 50)
+                        .padding(.top, 20)
                     
                     TextField("Enter your habit details", text: $habitDetails, axis: .vertical)
                         .frame(maxWidth: .infinity)
@@ -204,6 +223,10 @@ struct CreateNewHabit: View {
             Spacer()
             Button{
                 
+                
+                withAnimation {
+                    showPlusView.toggle()
+                }
             }label:{
                 Text("Create")
                     .font(.title2)
@@ -221,8 +244,7 @@ struct CreateNewHabit: View {
 }
 
 #Preview {
-    NavigationView{
-        CreateNewHabit()
+    @Previewable @State var showPlusView: Bool = true
+    CreateNewHabit(showPlusView: $showPlusView)
     }
-    
-}
+   

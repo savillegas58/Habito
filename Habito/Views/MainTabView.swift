@@ -9,28 +9,35 @@ import SwiftUI
 
 struct MainTabView: View {
     @Binding var isLoggedIn : Bool
+    
     var body: some View {
-        TabView {
-            NavigationView{
-                HomePageTabView()
+        ZStack{
+            TabView {
+                NavigationView{
+                    HomePageTabView()
+                }
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+                
+                NavigationView{
+                    DataAnalysisTabView()
+                }
+                .tabItem {
+                    Label("Data Analysis", systemImage: "chart.bar")
+                }
+                NavigationView{
+                    ProfileTabView(isLoggedIn: $isLoggedIn)
+                }
+                .tabItem {
+                    Label("Profile", systemImage: "person.circle")
+                }
             }
-            .tabItem {
-                Label("Home", systemImage: "house")
-            }
+
             
-            NavigationView{
-                DataAnalysisTabView()
-            }
-            .tabItem {
-                Label("Data Analysis", systemImage: "chart.bar")
-            }
-            NavigationView{
-                ProfileTabView(isLoggedIn: $isLoggedIn)
-            }
-            .tabItem {
-                Label("Profile", systemImage: "person.circle")
-            }
         }
+
+
     }
 }
 
