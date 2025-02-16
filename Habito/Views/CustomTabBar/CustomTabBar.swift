@@ -17,10 +17,8 @@ struct CustomTabBar: View {
                 .fill(.grayishWhite)
                 //.zIndex(1)
             
-            Button(action: {
-                print("Center button tapped!")
-              
-            }) {
+            
+            NavigationLink(destination: Text("Hello")){
                 Image(systemName: "plus")
                     .font(.system(size: 50))
                     .foregroundColor(.white)
@@ -28,6 +26,7 @@ struct CustomTabBar: View {
                     .background(Color.green, in: Circle())
                     .shadow(radius: 5)
                     .padding(.bottom,20)
+
             }.offset(y: -40)
             
             HStack {
@@ -67,5 +66,8 @@ struct CustomTabBar: View {
 }
 
 #Preview {
-    CustomTabView()
+    NavigationView{
+        CustomTabView()
+    }
+    
 }
