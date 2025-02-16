@@ -49,6 +49,18 @@ final class DatabseHabitFetcherTest: XCTestCase {
         XCTAssertEqual(fetchedHabits.count, 2)
     }
     
+    func testACcountHabitFetch_retunrs1_2habits() throws {
+        try populateDataBaseWithAccounts(numberOfAccounts: 1)
+        let fetchedAvvount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        let accountID = fetchedAvvount?.ID
+        
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.walking)
+        
+        let fetchedHAbits = try DatabaseHabitFetcher.habitFetcher.fetchWalkingHabits(accountID: accountID!)
+        XCTAssertEqual(fetchedHAbits.count, 1)
+    }
+    
     
     //TODO: FURTHER TESTING
 }

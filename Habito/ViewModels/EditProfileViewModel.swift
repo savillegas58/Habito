@@ -8,7 +8,11 @@
 import Foundation
 
 class EditProfileViewModel {
+    static var profileEditor = EditProfileViewModel()
+    
     let currentAccountID = UserDefaults.standard.integer(forKey: "currentAccountID")
+    
+    private init() {}
     
     func changeAccountUsername(newUsername: String) {
         do {
