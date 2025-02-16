@@ -32,8 +32,9 @@ class DatabaseHabitFetcher {
             let name = String(cString: sqlite3_column_text(habitStatement, 1))
             let currentProgress = Int(sqlite3_column_int(habitStatement, 2))
             let goal = Int(sqlite3_column_int(habitStatement, 3))
-            
-            let fetchedHabit = Habit(accountID: accountID, name: name, currentProgress: currentProgress, goal: goal)
+            let type = String(cString: sqlite3_column_text(habitStatement, 4))
+            let typeAsEnum = HabitType(rawValue: type)
+            let fetchedHabit = Habit(accountID: accountID, name: name, currentProgress: currentProgress, goal: goal, type: typeAsEnum!)
             habitList.append(fetchedHabit)
         }
         return habitList

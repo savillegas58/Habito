@@ -26,7 +26,7 @@ final class DatabasseHabitUpdateTest: XCTestCase {
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: testString as String)
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: (fetchedAccount?.ID)!, name: "testHabit", currentProgress: 0, goal: 10)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: (fetchedAccount?.ID)!, name: "testHabit", currentProgress: 0, goal: 10, type: HabitType.drinking)
         
         try DatabaseHabitUpdater.habitUpdater.updateAccountHabitProgress(accountID: (fetchedAccount?.ID)!, habitName: "testHabit", newProgress: 5)
         
