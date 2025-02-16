@@ -30,6 +30,13 @@ class DatabaseHabitFetcher {
         return habitList
     }
     
+    func fetchSleepingHabits(accountID: Int) throws -> [Habit] {
+        habitList.removeAll()
+        let habitQuery = "SELECT * FROM habit WHERE accountID = '\(accountID)' AND type = 'sleeping'"
+        try executeHabitFetch(habitQuery: habitQuery)
+        return habitList
+    }
+    
     private func executeHabitFetch(habitQuery: String) throws {
         var habitStatement : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db

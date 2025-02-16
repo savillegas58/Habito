@@ -33,4 +33,8 @@ class DataAnalyzer {
         }
         return totalSteps
     }
+    
+    func calcualteSleep() -> Int{
+        return 0
+    }
 }
