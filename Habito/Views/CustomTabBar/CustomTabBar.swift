@@ -10,9 +10,15 @@ import SwiftUI
 struct CustomTabBar: View {
     @State var selectedTab: Int = 0
     @Binding var isLoggedIn : Bool
+    @State private var showPlusView = false
     var body: some View {
         VStack{
             ZStack{
+                Spacer()
+                .fullScreenCover(isPresented: $showPlusView, content:  {
+                    CreateNewHabit(showPlusView: $showPlusView)
+                })
+                
                 switch selectedTab {
                 case 0 :
                     NavigationView{
@@ -45,7 +51,21 @@ struct CustomTabBar: View {
                     .shadow(radius: 3)
                     //.zIndex(1)
                 
-                NavigationLink(destination: CreateNewHabit()){
+//                NavigationLink(destination: CreateNewHabit()){
+//                    Image(systemName: "plus")
+//                        .font(.system(size: 50))
+//                        .foregroundColor(.white)
+//                        .padding(10)
+//                        .background(Color.green, in: Circle())
+//                        .shadow(radius: 5)
+//                        .padding(.bottom,20)
+//
+//                }.offset(y: -40)
+                Button(action: {
+                    withAnimation {
+                        showPlusView.toggle()
+                    }
+                }){
                     Image(systemName: "plus")
                         .font(.system(size: 50))
                         .foregroundColor(.white)
@@ -53,8 +73,8 @@ struct CustomTabBar: View {
                         .background(Color.green, in: Circle())
                         .shadow(radius: 5)
                         .padding(.bottom,20)
-
                 }.offset(y: -40)
+
                 
                 HStack {
 
