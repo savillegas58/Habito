@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DataAnalysisTabView: View {
     var percentageValue: Int?
+    var dataAnalyzer = DataAnalyzer()
     var body: some View {
         VStack{
             Spacer()
@@ -60,7 +61,7 @@ struct DataAnalysisTabView: View {
                         Text("Steps")
                             .font(.title2)
                             .padding(.bottom, 10)
-                        Text("5000")
+                        Text(String(dataAnalyzer.calculateSteps()))
                             .font(.title2)
                         
                     }
