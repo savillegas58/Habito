@@ -12,11 +12,13 @@ class Habit: Identifiable {
     var name : String?
     var currentProgress : Int?
     var goal : Int?
+    var type : HabitType?
     
-    init(accountID : Int, name: String, currentProgress: Int, goal: Int) {
+    init(accountID : Int, name: String, currentProgress: Int, goal: Int, type: HabitType) {
         self.accountID = accountID
         self.name = name
         self.currentProgress = currentProgress
         self.goal = goal
+        self.type = type
     }
 }
