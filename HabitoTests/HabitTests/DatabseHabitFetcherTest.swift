@@ -32,7 +32,7 @@ final class DatabseHabitFetcherTest: XCTestCase {
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         let accountID = fetchedAccount?.ID
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking, date: "12-12-1212")
         
         XCTAssertNoThrow(try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: accountID!))
     }
@@ -42,8 +42,8 @@ final class DatabseHabitFetcherTest: XCTestCase {
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         let accountID = fetchedAccount?.ID
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking)
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.drinking)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking, date: "12-12-1212")
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.drinking, date: "12-12-1212")
         
         let fetchedHabits = try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: accountID!)
         XCTAssertEqual(fetchedHabits.count, 2)
@@ -54,8 +54,8 @@ final class DatabseHabitFetcherTest: XCTestCase {
         let fetchedAvvount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         let accountID = fetchedAvvount?.ID
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking)
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.walking)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking, date: "12-12-1212")
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.walking, date: "12-12-1212")
         
         let fetchedHAbits = try DatabaseHabitFetcher.habitFetcher.fetchWalkingHabits(accountID: accountID!)
         XCTAssertEqual(fetchedHAbits.count, 1)

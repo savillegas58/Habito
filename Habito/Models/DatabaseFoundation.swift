@@ -37,7 +37,7 @@ class DatabaseFoundation {
     ///Throws: DatabaseErrors (type is depedent on the which table creation method failed)
     ///creates tables for accounts, habits, +++ in the databse
     private func createTables() throws {
-        //try resetDatabase() //only unccomment if you need to clear all table data
+        try resetDatabase() //only unccomment if you need to clear all table data
         try createAccountTable()
         try createHabitTable()
         try createChallengeTable()
@@ -66,7 +66,7 @@ class DatabaseFoundation {
     ///Creates a table for storing habits with name, curentProgressm and goal columns and a foreign key referencing the accountID of an account
     ///columns curentProgress and goal may be subject to change once we knwo what we need for the habits
     private func createHabitTable() throws {
-        let habitTableCreationStatement = "CREATE TABLE IF NOT EXISTS habit(accountID INTEGER, name TEXT, currentProgress INTEGER, goal INTEGER, type TEXT, FOREIGN KEY(accountID) REFERENCES account(accountID) ON DELETE CASCADE)"
+        let habitTableCreationStatement = "CREATE TABLE IF NOT EXISTS habit(accountID INTEGER, name TEXT, currentProgress INTEGER, goal INTEGER, type TEXT, date TEXT, FOREIGN KEY(accountID) REFERENCES account(accountID) ON DELETE CASCADE)"
         
         if sqlite3_exec(db, habitTableCreationStatement, nil, nil, nil) != SQLITE_OK {
             let errorMessage = String(cString: sqlite3_errmsg(db)!)

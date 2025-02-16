@@ -37,6 +37,8 @@ class DatabaseHabitFetcher {
         return habitList
     }
     
+    //OTHER 2 TYPES(?) AND FETCH BY DATE
+    
     private func executeHabitFetch(habitQuery: String) throws {
         var habitStatement : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db
@@ -52,7 +54,8 @@ class DatabaseHabitFetcher {
             let goal = Int(sqlite3_column_int(habitStatement, 3))
             let type = String(cString: sqlite3_column_text(habitStatement, 4))
             let typeAsEnum = HabitType(rawValue: type)
-            let fetchedHabit = Habit(accountID: accountID, name: name, currentProgress: currentProgress, goal: goal, type: typeAsEnum!)
+            let date = String(cString: sqlite3_column_text(habitStatement, 5))
+            let fetchedHabit = Habit(accountID: accountID, name: name, currentProgress: currentProgress, goal: goal, type: typeAsEnum!, date: date)
             habitList.append(fetchedHabit)
         }
     }

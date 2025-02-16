@@ -13,6 +13,7 @@ final class DatabseHabitInserterTest: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try DatabaseFoundation.databaseFoundation.createDatabase()
+
     }
 
     override func tearDownWithError() throws {
@@ -26,7 +27,7 @@ final class DatabseHabitInserterTest: XCTestCase {
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: test as String)
         
-        XCTAssertNoThrow(try DatabaseHabitInserter.habitInserter.insertHabit(accountID: (fetchedAccount?.ID)!, name: "habit", currentProgress: 1, goal: 1, type: HabitType.walking))
+        XCTAssertNoThrow(try DatabaseHabitInserter.habitInserter.insertHabit(accountID: (fetchedAccount?.ID)!, name: "habit", currentProgress: 1, goal: 1, type: HabitType.walking, date: "12-12-12"))
     }
 
 }

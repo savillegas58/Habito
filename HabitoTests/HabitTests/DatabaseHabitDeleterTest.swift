@@ -33,8 +33,8 @@ final class DatabaseHabitDeleterTest: XCTestCase {
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         let accountID = fetchedAccount?.ID
         
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking)
-        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.drinking)
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit", currentProgress: 1, goal: 10, type: HabitType.drinking, date: "12-12-1212")
+        try DatabaseHabitInserter.habitInserter.insertHabit(accountID: accountID!, name: "habit1", currentProgress: 3, goal: 10, type: HabitType.drinking, date: "12-12-1212")
         
         try DatabaseHabitDeleter.habitDeleter.deleteAllHabitsFromAccount(accountID: accountID!)
         
