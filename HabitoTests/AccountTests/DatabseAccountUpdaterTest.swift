@@ -30,7 +30,10 @@ final class DatabseAccountUpdaterTest: XCTestCase {
     func testUpdateAccountUsername_updatedAccountFound_accoutNameUpdated() throws {
         let newUsername = "new name"
         try populateDataBaseWithAccounts(numberOfAccounts: 1)
-        try DatabaseAccountUpdater.accountUpdater.updateAccountUsername(username: "test: 0", newUsername: newUsername)
+        
+        let oldFetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        
+        try DatabaseAccountUpdater.accountUpdater.updateAccountUsername(accountID: (oldFetchedAccount?.ID)!, newUsername: newUsername)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: newUsername)
         
@@ -40,7 +43,9 @@ final class DatabseAccountUpdaterTest: XCTestCase {
     func testUpdateAccountPassword_accountUpdated_accountPaswordUpdated() throws {
         let newPassword = "new pass"
         try populateDataBaseWithAccounts(numberOfAccounts: 1)
-        try DatabaseAccountUpdater.accountUpdater.updateAccountPassword(username: "test: 0", password: newPassword)
+        
+        let oldFetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
+        try DatabaseAccountUpdater.accountUpdater.updateAccountPassword(accountID: (oldFetchedAccount?.ID)!, password: newPassword)
         
         let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: "test: 0")
         
