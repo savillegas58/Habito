@@ -25,4 +25,28 @@ class EditProfileViewModel {
             print("Error updating password")
         }
     }
+    
+    func changeAccountPhonenumber(newPhonenumber: String) {
+        do {
+            try DatabaseAccountUpdater.accountUpdater.updateAccountPhoneNumber(accountID: currentAccountID, newPhonenumber: newPhonenumber)
+        } catch {
+            print("Error updateing account phone number")
+        }
+    }
+    
+    func changeAccountEmail(newEmail: String) {
+        do {
+            try DatabaseAccountUpdater.accountUpdater.updateAccountEmail(accountID: currentAccountID, newEmail: newEmail)
+        } catch {
+            print("Error updating account email")
+        }
+    }
+    
+    func updateProfilePicture(newLink: String) {
+        do {
+            try DatabaseAccountUpdater.accountUpdater.updateAccountProfilePictureLink(accountID: currentAccountID, newProfilePictureLink: newLink)
+        } catch {
+            print("Error updating account profile picutre link")
+        }
+    }
 }

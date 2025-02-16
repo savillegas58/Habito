@@ -28,18 +28,18 @@ class DatabaseAccountUpdater {
         try executeUpdateQuery(updateQuery: updateQuery)
     }
     
-    func updateAccountPhoneNumber(username : String, newPhonenumber: String) throws {
-        let updateQuery = "UPDATE account SET phoneNumber = '\(newPhonenumber)' WHERE username = '\(username)'"
+    func updateAccountPhoneNumber(accountID : Int, newPhonenumber: String) throws {
+        let updateQuery = "UPDATE account SET phoneNumber = '\(newPhonenumber)' WHERE accountID = '\(accountID)'"
         try executeUpdateQuery(updateQuery: updateQuery)
     }
     
-    func updateAccountEmail(username : String, newEmail : String) throws {
-        let updateQuery = "UPDATE account SET email = '\(newEmail)' WHERE username = '\(username)'"
+    func updateAccountEmail(accountID : Int, newEmail : String) throws {
+        let updateQuery = "UPDATE account SET email = '\(newEmail)' WHERE accountID = '\(accountID)'"
         try executeUpdateQuery(updateQuery: updateQuery)
     }
     
-    func updateAccountProfilePictureLink(username : String, newProfilePictureLink : String) throws {
-        let updateQuery = "UPDATE account SET profilePictureLink = '\(newProfilePictureLink)' WHERE username = '\(username)'"
+    func updateAccountProfilePictureLink(accountID : Int, newProfilePictureLink : String) throws {
+        let updateQuery = "UPDATE account SET profilePictureLink = '\(newProfilePictureLink)' WHERE accountID = '\(accountID)'"
         try executeUpdateQuery(updateQuery: updateQuery)
     }
     
