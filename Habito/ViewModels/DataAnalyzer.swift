@@ -41,8 +41,10 @@ class DataAnalyzer {
     func calcualteSleep() -> Int{
         var totalSleepHours = 0
         
+        for habit in sleepingHabitList {
+            totalSleepHours += habit.currentProgress!
+        }
         
-        
-        return 0
+        return totalSleepHours
     }
 }
