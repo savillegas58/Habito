@@ -48,6 +48,11 @@ class DataAnalyzer {
         return totalSleepHours
     }
     
+    func calcualteSleepPercentage() -> Int{
+        let hours = calculateSleep()
+        return hours / 8
+    }
+    
     //this is pretty inefficient
     //claculates completion based only on habits at the moment
     func calculateDailyCompletion() -> Int {
