@@ -10,6 +10,22 @@ import Foundation
 class SignUpViewModel {
     private var createdAccountID : Int?
     
+    func phonenumberIsntValid(phoneNumber: String) -> Bool {
+        if phoneNumber.isEmpty {
+            return true
+        } else if phoneInvalidFormat(phoneNumber: phoneNumber){
+            return true
+        }
+        return false
+    }
+    
+    //regex curtosey of Ravi K Thapliyal of stackoverflow
+    private func phoneInvalidFormat(phoneNumber: String) -> Bool {
+        let regex = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return !predicate.evaluate(with: phoneNumber)
+    }
+    
     func emailIsntValid(email: String) -> Bool {
         if email.isEmpty{
             return true

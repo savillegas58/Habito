@@ -62,10 +62,12 @@ struct SignUpView: View {
                 Button("Sign Up", action:{
                     print("pressed sign up")
                     //TODO: input validation
-                    if signUpViewModel.passwordIsntValid(password: password) {
+                    if signUpViewModel.emailIsntValid(email: email){
+                        print("email validation failed")
+                    } else if signUpViewModel.phonenumberIsntValid(phoneNumber: phoneNumber){
+                        print("phone number validation")
+                    } else if signUpViewModel.passwordIsntValid(password: password) {
                         print("password validation failed")
-                    } else if signUpViewModel.emailIsntValid(email: email) {
-                        print("email Validation failed")
                     }
                     
                     signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
