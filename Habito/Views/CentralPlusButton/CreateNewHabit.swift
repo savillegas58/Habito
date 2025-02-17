@@ -222,8 +222,11 @@ struct CreateNewHabit: View {
             
             Spacer()
             Button{
-                
-                
+                //function call here?
+                print("trying to add habit")
+                let habitCreator = CreateHabitViewModel()
+                //10 is just a random default
+                habitCreator.addHabitToCurrentAccount(name: habitTitle,type: selectedActivity!)
                 withAnimation {
                     showPlusView.toggle()
                 }
