@@ -12,8 +12,10 @@ struct HabitCard: View {
     var subMessage: String?
     var percentageProgress: Double?
     var image: UIImage?
+    var currentProgress: Int?
+    var goal: Int?
     var body: some View {
-        NavigationLink(destination: HabitDetailsView(progress: 5)){
+        NavigationLink(destination: HabitDetailsView(progress: Float(currentProgress!), habitName: message, goal: goal)){
             
                 ZStack{
                     
