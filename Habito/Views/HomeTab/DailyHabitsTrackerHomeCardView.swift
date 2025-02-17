@@ -38,7 +38,7 @@ struct DailyHabitsTrackerHomeCardView: View {
                 
                 HStack{
                     
-                    Gauge(value: Double(percentage), in: 0...1) {
+                    Gauge(value: Double(percentage), in: 0...100) {
                         Text("\(percentage)%")
                     }.gaugeStyle(.accessoryCircularCapacity)
                         .tint(.darkGreen)
