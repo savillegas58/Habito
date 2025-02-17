@@ -13,10 +13,12 @@ struct DailyHabitsTrackerView: View {
     var body: some View {
 
         VStack{
+            DataPickerView()
+                .padding(.top, -300)
             ForEach(habitsList) { habit in
                 HabitCard(message: habit.name, subMessage: "\(habit.currentProgress!)/\(habit.goal!)", percentageProgress: calculatePercentageProgress(currentProgress: habit.currentProgress!, goal: habit.goal!), image: UIImage(systemName: ""), currentProgress: habit.currentProgress, goal: habit.goal)
-                    .padding(.bottom, 20)
-            }
+                    .padding(.top, 20)
+            }//.padding(.top, 20)
 
         }
     }
