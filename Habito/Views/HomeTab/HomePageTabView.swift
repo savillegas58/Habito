@@ -36,7 +36,7 @@ struct HomePageTabView: View {
 
                 
             }.searchable(text: $searchText, prompt: "Search..")
-        }
+        }.navigationTitle(Text("Home")).navigationBarTitleDisplayMode(.inline)
 
             
 

@@ -55,15 +55,26 @@ struct ProfileTabView: View {
                     .foregroundStyle(.black,.black)
                     
                 .listRowSeparator(.hidden)
-                NavigationLink(destination: Text("sadf")){
+//                NavigationLink(destination: Text("sadf")){
+//                    Image(systemName: "trash")
+//                    Text("Delete Account")
+//                    
+//                        
+//                } .padding()
+//                    .foregroundStyle(.black,.black)
+                    
+                HStack{
                     Image(systemName: "trash")
-                    Text("Delete Account")
-                    
-                        
-                } .padding()
-                    .foregroundStyle(.black,.black)
-                    
-            
+                        .foregroundColor(.black)
+                    Button("Delete Account"){
+                        isLoggedIn = false
+                    }
+                    .tint(.black)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.subheadline.bold())
+                }.listRowSeparator(.hidden)
+                    .padding()
                 HStack{
                     Image(systemName: "power")
                         .foregroundColor(.red)
