@@ -35,7 +35,7 @@ class DataAnalyzer {
         for habit in walkingHabitList {
             totalSteps += habit.currentProgress!
         }
-        return totalSteps
+        return (totalSteps * 1000)
     }
     
     func calculateSleep() -> Int{
