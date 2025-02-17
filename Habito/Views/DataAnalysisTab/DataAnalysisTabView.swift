@@ -33,7 +33,7 @@ struct DataAnalysisTabView: View {
                                     .padding(.bottom, 10)
                             }
 
-                            Gauge(value: Double(/*(percentageValue ?? 33))/100.0*/dataAnalyzer.calcualteSleepPercentage()), in: 0...1) {
+                            Gauge(value: Double(dataAnalyzer.calcualteSleepPercentage()), in: 0...100) {
                                 Text("\(dataAnalyzer.calcualteSleepPercentage())%")
                             }.gaugeStyle(.accessoryCircularCapacity)
                                 .tint(.darkGreen)

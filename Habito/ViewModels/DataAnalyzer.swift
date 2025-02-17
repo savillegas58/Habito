@@ -50,7 +50,9 @@ class DataAnalyzer {
     
     func calcualteSleepPercentage() -> Int{
         let hours = calculateSleep()
-        return hours / 8
+        let hoursAsDecimal = Double(hours)/8.0
+        let hoursPercentage = hoursAsDecimal * 100
+        return Int(hoursPercentage)
     }
     
     //this is pretty inefficient
