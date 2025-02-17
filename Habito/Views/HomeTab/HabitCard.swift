@@ -19,11 +19,12 @@ struct HabitCard: View {
             
                 ZStack{
                     
-                    Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+                    Image(uiImage: image ?? UIImage(named: "habitBG1.jpg")!)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 350, height: 100)
                         .cornerRadius(15)
+                        .shadow(radius: 3)
                         .opacity(0.8)
 
                     

@@ -20,11 +20,12 @@ struct RecipeView: View {
                 
                 VStack{
 
-                    Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+                    Image(uiImage: image ?? UIImage(named: "pizza.jpg")!)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 300, height: 190)
                         .cornerRadius(15)
+                        .shadow(radius: 3)
                         .opacity(0.8)
                         .padding(.top)
                     

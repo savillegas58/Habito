@@ -12,22 +12,24 @@ struct ChallengeCardView: View {
     var nameOfChallenge: String?
     var challengeDetails: String?
     var image: UIImage?
+    var personImage: UIImage?
     var body: some View {
         ZStack{
-            Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+            Image(uiImage: image ?? UIImage(named: "habitBG1.jpg")!)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 350, height: 100)
                 .cornerRadius(15)
+                .shadow(radius: 3)
                 .opacity(0.8)
             
             HStack{
-                Image(uiImage: image ?? UIImage(systemName: "cat.circle")!)
+                Image(uiImage: personImage ?? UIImage(systemName: "cat.circle")!)
                 VStack{
                     HStack{
                         Spacer()
                         VStack{
-                            Text("Day \(dayMessage ?? 4)")
+                            Text("Day \(dayMessage ?? 1)")
                                 
                             Text(nameOfChallenge ?? "Stretching Challenge")
                                 

@@ -207,7 +207,7 @@ struct CreateNewHabit: View {
                         selectedTime = "Anytime"
                     } label: {
                         Text("Anytime")
-                            .frame(width: 150, height: 50)
+                            .frame(width: 170, height: 50)
                             .foregroundColor(selectedTime == "Anytime" ? .grayishWhite: .black)
                             .background(selectedTime == "Anytime" ? .darkGreen : .grayishWhite)
                             .cornerRadius(15)
