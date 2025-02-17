@@ -62,6 +62,12 @@ struct SignUpView: View {
                 Button("Sign Up", action:{
                     print("pressed sign up")
                     //TODO: input validation
+                    if signUpViewModel.passwordIsntValid(password: password) {
+                        
+                        print("bad")
+                        Text("uhhhhh")
+                    }
+                    
                     signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
                     isLoggedIn = true
                 })

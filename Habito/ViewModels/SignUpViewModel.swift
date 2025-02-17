@@ -10,6 +10,31 @@ import Foundation
 class SignUpViewModel {
     private var createdAccountID : Int?
     
+    func passwordIsntValid(password: String) -> Bool {
+        if password.isEmpty {
+            return true
+        } else if password.count < 8 {
+            return true
+        } else if passwordDoesntContainANumber(password: password){
+            return true
+        } else if paswordDoesntContainASpecialCharacter(password: password) {
+            return true
+        }
+        return false
+    }
+    
+    private func passwordDoesntContainANumber(password: String) -> Bool{
+        let numberRegex = /[0-9]/
+        let passwordDoesntContainANumber = password.matches(of: numberRegex).isEmpty
+        return passwordDoesntContainANumber
+    }
+    
+    private func paswordDoesntContainASpecialCharacter(password: String) -> Bool {
+        let characterRegex = /[^(A-Za-z0-9)]/
+        let passwordDoesntContainSpecialCharacter = password.matches(of: characterRegex).isEmpty
+        return passwordDoesntContainSpecialCharacter
+    }
+    
     func createAccount(username: String, email: String, phoneNumber: String, password: String) {
         do {
             try DatabaseAccountInserter.accountInserter.insertAccount(username: username, password: password, phoneNumber: phoneNumber, email: email)
@@ -22,7 +47,7 @@ class SignUpViewModel {
         populateDefaultHabits()
         populateDefaultChallenges()
         print("Account successfully added.")
-        //persisting the accontID here will be unessesary if we transition from sing up to the log in screen, but otherwise it will need to be done
+        //persisting the accontID here will be unessesary if we transition from sign up to the log in screen, but otherwise it will need to be done
         persistAccountID()
     }
     
