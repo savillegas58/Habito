@@ -26,6 +26,14 @@ struct Onboarding1: View {
                     }).padding()
                         .foregroundStyle(.darkGreen)
                 }
+                Image(uiImage: UIImage(named: "sanjose.jpg")!)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 350, height: 200)
+                    .cornerRadius(15)
+                    .shadow(radius: 3)
+                    .opacity(0.8)
+                
                 HStack{
                     Text("Start a")
                         .bold()
@@ -44,13 +52,17 @@ struct Onboarding1: View {
                 Text("from your community.")
                     .bold()
                     .foregroundStyle(.gray)
-            }
-            //once there's an image this will hopefully fix the spacing
-            Spacer()
+                Spacer()
+                HStack{
+                    Spacer()
+                    ArrowButton(showViewTwo: $showViewTwo)
+                }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            /*Spacer()
             HStack{
                 Spacer()
                 ArrowButton(showViewTwo: $showViewTwo)
-            }
+            }*/
         }
     }
 }
@@ -75,6 +87,12 @@ struct ArrowButton: View {
         ).padding()
     }
 }
-#Preview {
-    //Onboarding1()
+
+//creates multiple previews for some reason
+struct Onboarding1_Previews: PreviewProvider {
+    @State static var isLoggedIn = true
+    
+    static var previews: some View {
+        Onboarding1(isLoggedIn: $isLoggedIn)
+    }
 }
