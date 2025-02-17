@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct DataProgressCard: View {
-    
+    var dataAnalyzer = DataAnalyzer()
     @State var percentageValue: Int?
     
     var body: some View {
-        
         ZStack{
             RoundedRectangle(cornerRadius: 15)
                 .fill(.grayishWhite)
@@ -28,8 +27,8 @@ struct DataProgressCard: View {
                         .padding(.leading, 40)
                     Spacer()
                     
-                    Gauge(value: Double((percentageValue ?? 33))/100.0, in: 0...1) {
-                        Text("\(percentageValue ?? 33)%")
+                    Gauge(value: Double((dataAnalyzer.calculateDailyCompletion()/*percentageValue ?? 33*/))/100.0, in: 0...1) {
+                        Text("\(dataAnalyzer.calculateDailyCompletion() /*?? 33*/)%")
                     }.gaugeStyle(.accessoryCircularCapacity)
                         .tint(.darkGreen)
                         .foregroundStyle(.black)

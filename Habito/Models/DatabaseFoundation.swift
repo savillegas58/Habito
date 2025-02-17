@@ -37,7 +37,7 @@ class DatabaseFoundation {
     ///Throws: DatabaseErrors (type is depedent on the which table creation method failed)
     ///creates tables for accounts, habits, +++ in the databse
     private func createTables() throws {
-        try resetDatabase() //only unccomment if you need to clear all table data
+        //try resetDatabase() //only unccomment if you need to clear all table data
         try createAccountTable()
         try createHabitTable()
         try createChallengeTable()
