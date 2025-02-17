@@ -14,11 +14,12 @@ struct RecipeCardView: View {
     var body: some View {
         NavigationLink(destination: RecipeView()){
             VStack{
-                Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+                Image(uiImage: image ?? UIImage(named: "pizza.jpg")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 350, height: 150)
                     .cornerRadius(15)
+                    .shadow(radius: 3)
                     .opacity(0.8)
                 Text(recipeName ?? "Pizza")
                     .font(.subheadline)

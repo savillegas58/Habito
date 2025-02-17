@@ -26,11 +26,12 @@ struct HealthyRecipesCardView: View {
             .zIndex(1)
             
             ZStack{
-                Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+                Image(uiImage: image ?? UIImage(named: "eatHealthy.jpg")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 350, height: 140)
                     .cornerRadius(15)
+                    .shadow(radius: 3)
                     .opacity(0.8)
                 
                 HStack{
