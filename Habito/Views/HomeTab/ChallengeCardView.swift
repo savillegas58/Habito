@@ -13,8 +13,15 @@ struct ChallengeCardView: View {
     var challengeDetails: String?
     var image: UIImage?
     var personImage: UIImage?
+    @State var showPopUpView: Bool = false
     var body: some View {
         ZStack{
+            if showPopUpView{
+                PopUpView(showPopUpView: $showPopUpView)
+                    .zIndex(1)
+            }
+            
+            
             Image(uiImage: image ?? UIImage(named: "habitBG1.jpg")!)
                 .resizable()
                 .scaledToFill()
@@ -56,6 +63,9 @@ struct ChallengeCardView: View {
             }
             .padding(.leading, 50)
         }.padding(.bottom, 20)
+            .onTapGesture {
+                showPopUpView.toggle()
+            }
     }
 }
 

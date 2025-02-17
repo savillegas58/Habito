@@ -21,6 +21,7 @@ struct PersonalDataView: View {
                 .resizable()
                 .clipShape(Circle())
                 .scaledToFill()
+                .shadow(radius: 3)
                 .frame(width: 120, height: 120)
             Text("User name")
             Text("Email")

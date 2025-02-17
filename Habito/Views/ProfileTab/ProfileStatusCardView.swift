@@ -23,7 +23,7 @@ struct ProfileStatusCardView: View {
                 .font(.subheadline)
         } .overlay{
             RoundedRectangle(cornerRadius: 15)
-                .stroke(Color.gray, lineWidth: 0.25)
+                .stroke(Color.gray, lineWidth: 0.5)
                 .frame(width: 110, height: 110)
         }
         

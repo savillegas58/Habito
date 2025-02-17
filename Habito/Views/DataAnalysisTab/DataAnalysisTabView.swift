@@ -21,6 +21,7 @@ struct DataAnalysisTabView: View {
                         .fill(.grayishWhite)
                         .frame(height: 140)
                         .frame(maxWidth: 185)
+                        .shadow(radius: 3)
                         
                     VStack{
                         
@@ -54,6 +55,7 @@ struct DataAnalysisTabView: View {
                         .fill(.grayishWhite)
                         .frame(height: 140) 
                         .frame(maxWidth: 155)
+                        .shadow(radius: 3)
                     
                     VStack{
                         Image(systemName: "shoeprints.fill")

@@ -18,6 +18,7 @@ struct DataProgressCard: View {
                 .frame(height: 100)
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 20)
+                .shadow(radius: 3)
             
             VStack{
                 
