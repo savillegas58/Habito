@@ -10,6 +10,16 @@ import Foundation
 class SignUpViewModel {
     private var createdAccountID : Int?
     
+    func usernameIsntValid(username: String) -> Bool{
+        let fetchedAccount = DatabaseAccountFetcher.accountFetcher.fetchAccountByUsername(username: username)
+        if username.isEmpty {
+            return true
+        } else if fetchedAccount != nil {
+            return true
+        }
+        return false
+    }
+    
     func phonenumberIsntValid(phoneNumber: String) -> Bool {
         if phoneNumber.isEmpty {
             return true

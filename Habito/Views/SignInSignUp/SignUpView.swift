@@ -61,17 +61,19 @@ struct SignUpView: View {
                     .padding(.trailing)
                 Button("Sign Up", action:{
                     print("pressed sign up")
-                    //TODO: input validation
-                    if signUpViewModel.emailIsntValid(email: email){
+                    //TODO: have failed validation affect the UI
+                    if signUpViewModel.usernameIsntValid(username: username){
+                        print("username validation failed")
+                    } else if signUpViewModel.emailIsntValid(email: email){
                         print("email validation failed")
                     } else if signUpViewModel.phonenumberIsntValid(phoneNumber: phoneNumber){
                         print("phone number validation")
                     } else if signUpViewModel.passwordIsntValid(password: password) {
                         print("password validation failed")
+                    } else {
+                        signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
+                        isLoggedIn = true
                     }
-                    
-                    signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
-                    isLoggedIn = true
                 })
                 .frame(maxWidth: .infinity, minHeight: 50)        .background(Color.darkGreen)
                 .foregroundStyle(.grayishWhite)
