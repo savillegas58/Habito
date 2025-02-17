@@ -16,6 +16,13 @@ struct Onboarding2: View {
             Onboarding3(isLoggedIn: $isLoggedIn)
         } else {
             VStack{
+                Image(uiImage: UIImage(named: "sanjose.jpg")!)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 350, height: 200)
+                    .cornerRadius(15)
+                    .shadow(radius: 3)
+                    .opacity(0.8)
                 HStack{
                     Text("Achieve")
                         .bold()
@@ -34,12 +41,13 @@ struct Onboarding2: View {
                 Text("progress\"")
                     .foregroundStyle(.gray)
                     .bold()
-            }
-            Spacer()
-            HStack{
                 Spacer()
-                ArrowButton2(showViewThree: $showViewThree)
-            }
+                HStack{
+                    Spacer()
+                    ArrowButton2(showViewThree: $showViewThree)
+                }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .padding()
         }
     }
 }
@@ -65,6 +73,12 @@ struct ArrowButton2: View {
         ).padding()
     }
 }
-#Preview {
-    //Onboarding2()
+
+
+struct Onboarding2_Previews: PreviewProvider {
+    @State static var isLoggedIn = true
+    
+    static var previews: some View {
+        Onboarding2(isLoggedIn: $isLoggedIn)
+    }
 }

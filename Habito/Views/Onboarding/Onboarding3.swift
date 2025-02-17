@@ -19,6 +19,7 @@ struct Onboarding3: View {
                 SignInView(isLoggedIn: $isLoggedIn)
             } else {
             HStack {
+                //Habito logo?
                 Text("Welcome to")
                     .font(.title)
                 Text("Habito")
@@ -31,6 +32,14 @@ struct Onboarding3: View {
             Text("progress, and stay motivated every day.")
                 .bold()
                 .foregroundStyle(.gray)
+            Image(uiImage: UIImage(named: "sanjose.jpg")!)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 350, height: 200)
+                    .cornerRadius(15)
+                    .shadow(radius: 3)
+                    .opacity(0.8)
+                
             Button("GET STARTED", action: {
                 print("GET STARTED pressed")
                 self.showSignUp = true
@@ -57,6 +66,10 @@ struct Onboarding3: View {
     }
 }
 
-#Preview {
-    //Onboarding3()
+struct Onboarding3_Previews: PreviewProvider {
+    @State static var isLoggedIn = true
+    
+    static var previews: some View {
+        Onboarding3(isLoggedIn: $isLoggedIn)
+    }
 }
