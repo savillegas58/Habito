@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DailyHabitsTrackerHomeCardView: View {
+    //right now this just grabs the first habit and displays that data
+    let habit = HabitViewModel.habitFetcher.getAnySingleHabit()
+    let percentage = HabitViewModel.habitFetcher.progressPercentage
     var image: UIImage?
     var percentageValue: Int?
     var body: some View {
@@ -35,13 +38,13 @@ struct DailyHabitsTrackerHomeCardView: View {
                 
                 HStack{
                     
-                    Gauge(value: Double((percentageValue ?? 33))/100.0, in: 0...1) {
-                        Text("\(percentageValue ?? 33)%")
+                    Gauge(value: Double(percentage), in: 0...1) {
+                        Text("\(percentage)%")
                     }.gaugeStyle(.accessoryCircularCapacity)
                         .tint(.darkGreen)
                         .foregroundStyle(.grayishWhite)
                     VStack{
-                        Text("DRINK 8 GLASSES OF WATER")
+                        Text(habit.name ?? "habit")
                             .foregroundStyle(.grayishWhite)
                             .font(.headline)
                         Text("Stay hydrated for a healthier day")
