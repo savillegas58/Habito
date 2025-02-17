@@ -16,7 +16,7 @@ struct Onboarding2: View {
             Onboarding3(isLoggedIn: $isLoggedIn)
         } else {
             VStack{
-                Image(uiImage: UIImage(named: "sanjose.jpg")!)
+                Image(uiImage: UIImage(named: "girl_stretching_onboarding1.png")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 350, height: 200)

@@ -26,10 +26,10 @@ struct Onboarding1: View {
                     }).padding()
                         .foregroundStyle(.darkGreen)
                 }
-                Image(uiImage: UIImage(named: "sanjose.jpg")!)
+                Image(uiImage: UIImage(named: "girl_drinking_onboarding1.png")!)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 350, height: 200)
+                    .frame(width: 350, height: 300)
                     .cornerRadius(15)
                     .shadow(radius: 3)
                     .opacity(0.8)
