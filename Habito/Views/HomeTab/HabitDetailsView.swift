@@ -14,47 +14,60 @@ struct HabitDetailsView: View {
     @State var progress: Float
     var habitName: String?
     var goal: Int?
+    @State var showPopUpView: Bool = false
     var body: some View {
-        VStack{
-            
-            Text("Almost there!")
-                .font(.title)
-                .padding(.top, 60)
-            
-            Text("Keep going, you're doing great!")
-                .font(.title3)
-
-            ZStack(){
-                Circle()
-                    .stroke(Color.blue, lineWidth: 10)
-                    .frame(width: 200, height: 200)
-                    
-                
-                Text("\(Int(progress))")
-                    .font(.system(size:60))
-            }.padding(.vertical, 70)
-            
-            
-            
-            Slider(value: $progress, in: 0...Float(goal ?? 5), step: 1)
-                .padding(.horizontal, 20)
-                .tint(.blue)
-            Button{
-                HabitDetailsViewModel.habitUpdater.updateHabitProgress(habitName: habitName!, newProgress: Int(progress))
-            } label: {
-                Text("Done")
-                    .frame(width: 200, height: 50)
-                    .foregroundColor(.white)
-                    .background(.darkGreen)
-                    .cornerRadius(15)
-                    .padding()
-                        
+        ZStack{
+            if showPopUpView {
+                PopUpView(showPopUpView: $showPopUpView)
+                    .zIndex(1)
             }
-            Spacer()
+            
+            VStack{
+                
+                Text("Almost there!")
+                    .font(.title)
+                    .padding(.top, 60)
+                
+                Text("Keep going, you're doing great!")
+                    .font(.title3)
 
-   
-    
+                ZStack(){
+                    Circle()
+                        .stroke(Color.blue, lineWidth: 10)
+                        .frame(width: 200, height: 200)
+                        
+                    
+                    Text("\(Int(progress))")
+                        .font(.system(size:60))
+                }.padding(.vertical, 70)
+                
+                
+                
+                Slider(value: $progress, in: 0...Float(goal ?? 5), step: 1)
+                    .padding(.horizontal, 20)
+                    .tint(.blue)
+                Button{
+                    HabitDetailsViewModel.habitUpdater.updateHabitProgress(habitName: habitName!, newProgress: Int(progress))
+                    if progress == Float(goal ?? 5){
+                        showPopUpView.toggle()
+                    }
+                } label: {
+                    Text("Done")
+                        .frame(width: 200, height: 50)
+                        .foregroundColor(.white)
+                        .background(.darkGreen)
+                        .cornerRadius(15)
+                        .padding()
+                            
+                }
+                Spacer()
+
+       
+        
+            }
         }.navigationTitle(Text("\(habitName ?? "Habit") Details")).navigationBarTitleDisplayMode(.inline)
+        
+        
     }
 }
 

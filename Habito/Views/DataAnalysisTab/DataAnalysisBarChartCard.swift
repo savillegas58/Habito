@@ -26,6 +26,7 @@ struct DataAnalysisBarChartCard: View {
                 .fill(.grayishWhite)
                 .frame(height: 300)
                 .frame(maxWidth: .infinity)
+                .shadow(radius: 3)
                 .padding(.horizontal, 20)
                 .overlay(
                     

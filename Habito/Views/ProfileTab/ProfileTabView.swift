@@ -86,6 +86,7 @@ struct ProfileTabView: View {
             
             }.scrollDisabled(true)
             .scrollContentBackground(.hidden)
+            .shadow(radius: 3)
         }.navigationTitle("Your Profile").navigationBarTitleDisplayMode(.inline)
         
     }
