@@ -14,7 +14,7 @@ struct DailyHabitsTrackerView: View {
 
         VStack{
             ForEach(habitsList) { habit in
-                HabitCard(message: habit.name, subMessage: "\(habit.currentProgress!)/\(habit.goal!)", percentageProgress: calculatePercentageProgress(currentProgress: habit.currentProgress!, goal: habit.goal!), image: UIImage(systemName: ""))
+                HabitCard(message: habit.name, subMessage: "\(habit.currentProgress!)/\(habit.goal!)", percentageProgress: calculatePercentageProgress(currentProgress: habit.currentProgress!, goal: habit.goal!), image: UIImage(systemName: ""), currentProgress: habit.currentProgress, goal: habit.goal)
                     .padding(.bottom, 20)
             }
 

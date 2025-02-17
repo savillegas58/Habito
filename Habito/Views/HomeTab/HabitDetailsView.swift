@@ -5,6 +5,8 @@
 //  Created by Saul on 2/14/25.
 //
 
+//KNOWN ISSUES: pressing done does uipdate the habit but the changes won't be reflect in the DailyHabits's tracker view until you navigate to another view useuing the tab bar and navigate back
+
 import SwiftUI
 
 struct HabitDetailsView: View {
@@ -34,11 +36,11 @@ struct HabitDetailsView: View {
             
             
             
-            Slider(value: $progress, in: 0...Float(goal ?? 5))
+            Slider(value: $progress, in: 0...Float(goal ?? 5), step: 1)
                 .padding(.horizontal, 20)
                 .tint(.blue)
             Button{
-                
+                HabitDetailsViewModel.habitUpdater.updateHabitProgress(habitName: habitName!, newProgress: Int(progress))
             } label: {
                 Text("Done")
                     .frame(width: 200, height: 50)
