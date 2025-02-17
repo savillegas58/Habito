@@ -47,4 +47,30 @@ class DataAnalyzer {
         
         return totalSleepHours
     }
+    
+    //this is pretty inefficient
+    //claculates completion based only on habits at the moment
+    func calculateDailyCompletion() -> Int {
+        var habitList = [Habit]()
+        var completionPercentage = 0
+        
+        do {
+            var completetedHabits = 0
+            habitList = try DatabaseHabitFetcher.habitFetcher.fetchAccountHabits(accountID: currentAccountID)
+            let totalHabits = habitList.count
+            
+            for habit in habitList {
+                if habit.currentProgress == habit.goal {
+                    completetedHabits += 1
+                }
+            }
+            
+            completionPercentage = (completetedHabits) / (totalHabits)
+            
+        } catch {
+            print("error fetching data for daily completion calculation: '\(error)'")
+        }
+        
+        return completionPercentage
+    }
 }

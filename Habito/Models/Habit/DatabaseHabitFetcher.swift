@@ -39,6 +39,15 @@ class DatabaseHabitFetcher {
     
     //OTHER 2 TYPES(?) AND FETCH BY DATE
     
+    
+    //I don't know if this funciton will actually serve any purpose in retrospect
+    func fetchHabitsByDate(accountID: Int, date : String) throws -> [Habit] {
+        habitList.removeAll()
+        let habitQuery = "SELECT * FROM habit WHERE accountID = '\(accountID)' AND date = '\(date)'"
+        try executeHabitFetch(habitQuery: habitQuery)
+        return habitList
+    }
+    
     private func executeHabitFetch(habitQuery: String) throws {
         var habitStatement : OpaquePointer?
         let db = DatabaseFoundation.databaseFoundation.db
