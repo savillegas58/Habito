@@ -10,6 +10,21 @@ import Foundation
 class SignUpViewModel {
     private var createdAccountID : Int?
     
+    func emailIsntValid(email: String) -> Bool {
+        if email.isEmpty{
+            return true
+        } else if emailInvalidFormat(email: email){
+            return true
+        }
+        return false
+    }
+    
+    private func emailInvalidFormat(email: String) -> Bool {
+        let emailRegex = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,10}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return !predicate.evaluate(with: email)
+    }
+    
     func passwordIsntValid(password: String) -> Bool {
         if password.isEmpty {
             return true
