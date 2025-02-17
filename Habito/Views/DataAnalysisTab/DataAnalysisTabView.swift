@@ -33,8 +33,8 @@ struct DataAnalysisTabView: View {
                                     .padding(.bottom, 10)
                             }
 
-                            Gauge(value: Double((percentageValue ?? 33))/100.0, in: 0...1) {
-                                Text("\(percentageValue ?? 33)%")
+                            Gauge(value: Double(/*(percentageValue ?? 33))/100.0*/dataAnalyzer.calcualteSleepPercentage()), in: 0...1) {
+                                Text("\(dataAnalyzer.calcualteSleepPercentage())%")
                             }.gaugeStyle(.accessoryCircularCapacity)
                                 .tint(.darkGreen)
                                 .foregroundStyle(.black)
@@ -42,7 +42,7 @@ struct DataAnalysisTabView: View {
                             
                         }
                         
-                        Text("8/8 Hours")
+                        Text("\(dataAnalyzer.calculateSleep())/8 Hours")
                             .font(.title)
                         
                     }
