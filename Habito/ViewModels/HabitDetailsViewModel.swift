@@ -10,7 +10,7 @@ import Foundation
 class HabitDetailsViewModel{
     static var habitUpdater = HabitDetailsViewModel()
     
-    let currentAccountID = UserDefaults.standard.integer(forKey: "currentAccountID")
+    private let currentAccountID = UserDefaults.standard.integer(forKey: "currentAccountID")
     
     private init() {}
     
