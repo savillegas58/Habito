@@ -16,6 +16,7 @@ struct DailyHabitsTrackerHomeCardView: View {
             NavigationLink(destination: DailyHabitsTrackerView()) {
                 HStack{
                     Text("Stay on top of your goals by completing your daily habits")
+                        .bold()
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.title2)
@@ -37,16 +38,26 @@ struct DailyHabitsTrackerHomeCardView: View {
                     
                     Gauge(value: Double((percentageValue ?? 33))/100.0, in: 0...1) {
                         Text("\(percentageValue ?? 33)%")
+                            .shadow(color: .black, radius: 3)
+                            .shadow(color: .black, radius: 1)
+                            .shadow(color: .black, radius: 1)
                     }.gaugeStyle(.accessoryCircularCapacity)
                         .tint(.darkGreen)
+                        .shadow(color: .black, radius: 0.1)
                         .foregroundStyle(.grayishWhite)
                     VStack{
                         Text("DRINK 8 GLASSES OF WATER")
                             .foregroundStyle(.grayishWhite)
                             .font(.headline)
+                            .shadow(color: .black, radius: 3)
+                            .shadow(color: .black, radius: 1)
+                            .shadow(color: .black, radius: 1)
                         Text("Stay hydrated for a healthier day")
                             .foregroundStyle(.grayishWhite)
                             .font(.subheadline)
+                            .shadow(color: .black, radius: 3)
+                            .shadow(color: .black, radius: 1)
+                            .shadow(color: .black, radius: 1)
                     }
                         
                 }.padding(.horizontal, 40)

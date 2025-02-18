@@ -33,7 +33,7 @@ struct Onboarding1: View {
                     .cornerRadius(15)
                     .shadow(radius: 3)
                     .opacity(0.8)
-                
+                Spacer()
                 HStack{
                     Text("Start a")
                         .bold()

@@ -14,13 +14,28 @@ struct SignUpView: View {
     @State var phoneNumber: String = ""
     @State var password: String = ""
     @State var shouldEnterApp = false
-    
+    @State var returnToOnboarding: Bool = false
     @Binding var isLoggedIn : Bool
     
     var body: some View {
             VStack{
                 Text("Create Account")
                     .padding(.bottom)
+                HStack{
+                    Button(action: {
+                        returnToOnboarding = true
+                    })
+                    {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                    }.padding(.leading, 25)
+                        .padding(.top, -45)
+                        .fullScreenCover(isPresented: $returnToOnboarding) {
+                        Onboarding3(isLoggedIn: $isLoggedIn)
+                        }
+                    Spacer()
+                }
                 Text("Let's create an account for you!")
                     .padding(.bottom)
                     .bold()

@@ -23,6 +23,7 @@ struct Onboarding2: View {
                     .cornerRadius(15)
                     .shadow(radius: 3)
                     .opacity(0.8)
+                Spacer()
                 HStack{
                     Text("Achieve")
                         .bold()
