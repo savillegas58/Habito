@@ -10,14 +10,15 @@ import Charts
 
 struct DataAnalysisBarChartCard: View {
     var habitTime: Int?
-    var data = [
-        HabitDataPoint(hours: 3, day: "Sun"),
-        HabitDataPoint(hours: 4, day: "Mon"),
-        HabitDataPoint(hours: 1, day: "Tue"),
+    let analyzer = DataAnalyzer()
+    @State var data = [
+        HabitDataPoint(hours: 0, day: "Sun"),
+        HabitDataPoint(hours: 0, day: "Mon"),
+        HabitDataPoint(hours: 0, day: "Tue"),
         HabitDataPoint(hours: 0, day: "Wed"),
-        HabitDataPoint(hours: 8, day: "Thu"),
-        HabitDataPoint(hours: 2, day: "Fri"),
-        HabitDataPoint(hours: 6, day: "Sat")
+        HabitDataPoint(hours: 0, day: "Thu"),
+        HabitDataPoint(hours: 0, day: "Fri"),
+        HabitDataPoint(hours: 0, day: "Sat")
     ]
     var body: some View {
     
@@ -48,7 +49,9 @@ struct DataAnalysisBarChartCard: View {
                         }
                 )
             
-        }
+        }.onAppear(perform: {
+            data = analyzer.generateBarDailyGraphData()
+        })
         
         
     }

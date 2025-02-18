@@ -79,4 +79,35 @@ class DataAnalyzer {
        
         return Int(completionPercentage)
     }
+    
+    //date code sourced from Sulthan on StackOverflow
+    //this code iss disgusting but im so tired
+    func generateBarDailyGraphData() -> [HabitDataPoint] {
+        let customDateFormatter = DateFormatter()
+        customDateFormatter.setLocalizedDateFormatFromTemplate("EEE")
+        let day = customDateFormatter.string(from: Date())
+        print(day)
+        
+        let hours = calculateSleep()
+        
+        var sunHours = day == "Sun" ? hours : 0
+        var monHours = day == "Mon" ? hours : 0
+        var tueHours = day == "Tue" ? hours : 0
+        var wedHours = day == "Wed" ? hours : 0
+        var thuHours = day == "Thu" ? hours : 0
+        var friHours = day == "Fri" ? hours : 0
+        var satHours = day == "Sat" ? hours : 0
+        
+        var data = [
+            HabitDataPoint(hours: sunHours, day: "Sun"),
+            HabitDataPoint(hours: monHours, day: "Mon"),
+            HabitDataPoint(hours: tueHours, day: "Tue"),
+            HabitDataPoint(hours: wedHours, day: "Wed"),
+            HabitDataPoint(hours: thuHours, day: "Thu"),
+            HabitDataPoint(hours: friHours, day: "Fri"),
+            HabitDataPoint(hours: satHours, day: "Sat")
+        ]
+        
+        return data
+    }
 }
