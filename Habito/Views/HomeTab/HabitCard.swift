@@ -50,7 +50,7 @@ struct HabitCard: View {
                             }
                             .padding(.leading, 10)
                             .padding(.trailing, 40)
-                            ProgressView(value: Double((percentageProgress ?? 100))/100.0)
+                            ProgressView(value: Double(percentageProgress ?? 100))
                                 .scaleEffect(x: 1, y: 2.5)
                                 .padding(.leading, 10)
                                 .padding(.trailing,50)
