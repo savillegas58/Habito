@@ -29,7 +29,7 @@ struct NotificationCard: View {
                     .padding(.bottom, 70)
                 
                 VStack{
-                    Text(title ?? "Welcome to Habito!")
+                    Text(title ?? "Welcome to Habit Helper!")
                         .foregroundColor(.black)
                         .frame(width: 280, alignment: .leading)
                         .frame(height: 20)

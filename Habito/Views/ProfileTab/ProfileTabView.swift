@@ -24,16 +24,16 @@ struct ProfileTabView: View {
                 .frame(width: 200, height: 200)
                 .shadow(radius: 3)
             
-            HStack{
-                Spacer()
-                ProfileStatusCardView()
-                Spacer()
-                ProfileStatusCardView()
-                Spacer()
-                ProfileStatusCardView()
-                Spacer()
-            }
-            .padding(.top, 50)
+//            HStack{
+//                Spacer()
+//                ProfileStatusCardView()
+//                Spacer()
+//                ProfileStatusCardView()
+//                Spacer()
+//                ProfileStatusCardView()
+//                Spacer()
+//            }
+//            .padding(.top, 50)
             
             List {
 
@@ -88,7 +88,7 @@ struct ProfileTabView: View {
             }.scrollDisabled(true)
             .scrollContentBackground(.hidden)
             .shadow(radius: 3)
-            //.padding(.top, 100)
+            .padding(.top, 50)
         }.navigationTitle("Your Profile").navigationBarTitleDisplayMode(.inline)
         
     }

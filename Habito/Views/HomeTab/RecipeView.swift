@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct RecipeView: View {
-    var image: UIImage?
-    var recipeName: String?
-    var ingredients: String?
-    var instructions: String?
-    var timeInMinutes: Int?
-    var calories: Int?
+    @Binding var image: String?
+    @Binding var recipeName: String?
+    @Binding var ingredients: String?
+    @Binding var instructions: String?
+    @Binding var timeInMinutes: Int?
+    @Binding var caloriesInKcal: Int?
     var body: some View {
         
             ScrollView{
                 
                 VStack{
 
-                    Image(uiImage: image ?? UIImage(named: "pizza.jpg")!)
+                    Image(uiImage: UIImage(named: image ?? "pizza.jpg")!)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 300, height: 190)
@@ -54,7 +54,7 @@ struct RecipeView: View {
                                 Image(systemName: "flame")
                                     .foregroundColor(.grayishWhite)
                                     .font(.title2)
-                                Text("\(calories ?? 4449) kcl")
+                                Text("\(caloriesInKcal ?? 4449) kcl")
                                     .foregroundColor(.grayishWhite)
                                     .font(.headline)
                             }
@@ -83,7 +83,7 @@ struct RecipeView: View {
                         .font(.title2)
                     Text(ingredients ?? "• 1 cup all-purpose flour\n• 1 teaspoon salt\n• 2 teaspoons (one packet) active dry yeast\n• 1 cup warm water (110°F/45°C)\n• 2 large eggs, room temperature\n• 1 cup vegetable oil\n• 2 teaspoons vanilla extract\n• 1 cup pizza sauce\n• 2 cups shredded mozzarella cheese\n• Your preferred toppings, such as pepperoni")
                         .foregroundColor(.secondary)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 25)
                     Text("Instructions:")
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 20)
@@ -108,8 +108,14 @@ struct RecipeView: View {
 }
 
 #Preview {
+    @Previewable @State var recipeName: String?
+    @Previewable @State var ingredients: String?
+    @Previewable @State var instructions: String?
+    @Previewable @State var timeInMinutes: Int?
+    @Previewable @State var calories: Int?
+    @Previewable @State var image: String?
     NavigationView{
-        RecipeView()
+        RecipeView(image: $image, recipeName: $recipeName, ingredients: $ingredients, instructions: $instructions, timeInMinutes: $timeInMinutes, caloriesInKcal: $calories)
     }
     
 }

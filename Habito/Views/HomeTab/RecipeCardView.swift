@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct RecipeCardView: View {
-    var recipeName : String?
-    var caloriesInKcal : Int?
-    var image : UIImage?
+    @State var recipeName : String?
+    @State  var ingredients : String?
+    @State var instructions : String?
+    @State var timeInMinutes : Int?
+    @State var caloriesInKcal : Int?
+    @State var image : String?
     var body: some View {
-        NavigationLink(destination: RecipeView()){
+        NavigationLink(destination: RecipeView(image: $image, recipeName: $recipeName, ingredients: $ingredients, instructions: $instructions, timeInMinutes: $timeInMinutes, caloriesInKcal: $caloriesInKcal)){
             VStack{
-                Image(uiImage: image ?? UIImage(named: "pizza.jpg")!)
+                Image(uiImage: UIImage(named: image ?? "pizza.jpg")!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 350, height: 150)
@@ -39,5 +42,6 @@ struct RecipeCardView: View {
 }
 
 #Preview {
+
     RecipeCardView()
 }
