@@ -19,6 +19,7 @@ struct DailyHabitsChallengeHomeCardView: View {
             NavigationLink(destination: DailyHabitsChallengeView()) {
                 HStack{
                     Text("30 Days of healthy habits")
+                        .bold()
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.title2)
@@ -39,16 +40,26 @@ struct DailyHabitsChallengeHomeCardView: View {
                 VStack{
                     Text("Today's Challenge")
                         .foregroundStyle(.grayishWhite)
+                        .shadow(color: .black, radius: 3)
+                        .shadow(color: .black, radius: 1)
+                        .shadow(color: .black, radius: 1)
                     Text("Day \(currentDay ?? 0) of \(totalDays ?? 0)")
                         .foregroundStyle(.grayishWhite)
+                        .shadow(color: .black, radius: 3)
+                        .shadow(color: .black, radius: 1)
+                        .shadow(color: .black, radius: 1)
                         .padding(.bottom)
                     Text(currentChallenge ?? "Walk for 20 Minutes")
                         .foregroundStyle(.grayishWhite)
+                        .shadow(color: .black, radius: 3)
+                        .shadow(color: .black, radius: 1)
+                        .shadow(color: .black, radius: 1)
                     Button("Done"){
                         
                     }.buttonStyle(.borderedProminent)
                         .tint(.darkGreen)
                         .cornerRadius(15)
+                        .shadow(radius: 3)
                 }
             }
 

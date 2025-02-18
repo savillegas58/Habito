@@ -11,9 +11,27 @@ struct SignInView: View {
     @State var username = ""
     @State var password = ""
     @State var isPresenting = false
+    @State var returnToOnboarding: Bool = false
     @Binding var isLoggedIn : Bool
     var body: some View {
         VStack {
+            HStack{
+                Button(action: {
+                    returnToOnboarding = true
+                })
+                {
+                    Image(systemName: "xmark")
+                        .font(.title2)
+                        .foregroundColor(.black)
+                }.padding(.leading, 25)
+                    .padding(.top, -45)
+                    .fullScreenCover(isPresented: $returnToOnboarding) {
+                    Onboarding3(isLoggedIn: $isLoggedIn)
+                    }
+                Spacer()
+            }
+
+                              
             Image("sanjose.jpg")
                 .resizable()
                 .frame(width: 200, height: 200)
@@ -56,7 +74,7 @@ struct SignInView: View {
             .cornerRadius(15)
             .padding()
 
-            
+
         }
     }
 }

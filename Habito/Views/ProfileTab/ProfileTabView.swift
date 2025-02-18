@@ -17,11 +17,12 @@ struct ProfileTabView: View {
         VStack{
             //ProfileStatusCardView()
             Spacer()
-            Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+            Image(uiImage: image ?? UIImage(named: "headshot_icon.jpg")!)
                 .resizable()
                 .clipShape(Circle())
                 .scaledToFill()
-                .frame(width: 120, height: 120)
+                .frame(width: 200, height: 200)
+                .shadow(radius: 3)
             
             HStack{
                 Spacer()
@@ -44,17 +45,6 @@ struct ProfileTabView: View {
                 }.padding()
                     .foregroundStyle(.black,.black)
                     
-                
-                NavigationLink(destination: Text("sadf")){
-                    Image(systemName: "questionmark.circle")
-                        .font(.title3)
-                    Text("Help")
-                        
-                        
-                }.padding()
-                    .foregroundStyle(.black,.black)
-                    
-                .listRowSeparator(.hidden)
 //                NavigationLink(destination: Text("sadf")){
 //                    Image(systemName: "trash")
 //                    Text("Delete Account")
@@ -98,6 +88,7 @@ struct ProfileTabView: View {
             }.scrollDisabled(true)
             .scrollContentBackground(.hidden)
             .shadow(radius: 3)
+            //.padding(.top, 100)
         }.navigationTitle("Your Profile").navigationBarTitleDisplayMode(.inline)
         
     }

@@ -45,5 +45,8 @@ struct HomePageTabView: View {
 }
 
 #Preview {
-    HomePageTabView()
+    NavigationView{
+        HomePageTabView()
+    }
+   
 }

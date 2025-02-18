@@ -16,6 +16,7 @@ struct HealthyRecipesCardView: View {
             NavigationLink(destination: HealthyRecipesView()) {
                 HStack{
                     Text("Try our healthy recipes today")
+                        .bold()
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.title2)
@@ -38,6 +39,9 @@ struct HealthyRecipesCardView: View {
                     Text("Eat\n It\nHealthy")
                         .foregroundStyle(.grayishWhite)
                         .font(.title)
+                        .shadow(color: .black, radius: 3)
+                        .shadow(color: .black, radius: 1)
+                        .shadow(color: .black, radius: 1)
                         .frame(width: 100, height: 110, alignment: .leading)
                     Spacer()
                         
