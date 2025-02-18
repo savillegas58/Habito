@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DailyHabitsTrackerView: View {
-    var habitsList = HabitViewModel.habitFetcher.getCurrentAccountHabits()
+    @State var habitsList = HabitViewModel.habitFetcher.getCurrentAccountHabits()
     
     var body: some View {
 
@@ -20,7 +20,9 @@ struct DailyHabitsTrackerView: View {
                     .padding(.top, 20)
             }//.padding(.top, 20)
 
-        }
+        }.onAppear(perform: {
+            habitsList = HabitViewModel.habitFetcher.getCurrentAccountHabits()
+        })
     }
 }
 
