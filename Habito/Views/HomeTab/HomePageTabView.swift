@@ -22,9 +22,13 @@ struct HomePageTabView: View {
                     Image(systemName: "bell")
                         .font(.title2)
                         .foregroundColor(.black)
-                }.padding(.trailing, 25)
+                }.accessibilityIdentifier("NotificationButton")
+                .padding(.trailing, 25)
+                    
                     .fullScreenCover(isPresented: $showSheet){
                         NotificationsView(showSheet: $showSheet)
+                            .accessibilityIdentifier("NotificationsView")
+
                     }
             }
             ScrollView{

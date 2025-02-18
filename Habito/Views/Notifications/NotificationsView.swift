@@ -21,6 +21,7 @@ struct NotificationsView: View {
                         .font(.title2)
                         .foregroundColor(.black)
                 }.padding(.trailing, 25)
+                    .accessibilityIdentifier("NotificationXMarkButton")
             }.padding(.bottom, 20)
             
             
