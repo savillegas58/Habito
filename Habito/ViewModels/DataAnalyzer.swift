@@ -9,9 +9,9 @@ import Foundation
 
 class DataAnalyzer {
     //will this update?
-    let currentAccountID = UserDefaults.standard.integer(forKey: "currentAccountID")
-    let walkingHabitList : [Habit]
-    let sleepingHabitList : [Habit]
+    private let currentAccountID = UserDefaults.standard.integer(forKey: "currentAccountID")
+    var walkingHabitList : [Habit]
+    var sleepingHabitList : [Habit]
     
     init() {
         var fetchedWalkingHabits = [Habit]()
@@ -27,9 +27,19 @@ class DataAnalyzer {
         self.sleepingHabitList = fetchedSleepingHabits
     }
     
+    private func refreshData() {
+        do {
+            walkingHabitList = try DatabaseHabitFetcher.habitFetcher.fetchWalkingHabits(accountID: currentAccountID)
+            sleepingHabitList = try DatabaseHabitFetcher.habitFetcher.fetchSleepingHabits(accountID: currentAccountID)
+        } catch {
+            print("Erorr fetching during data analyzer refresh")
+        }
+    }
+    
     //this currently wokrs under the assumption that 1 'point' of progress is 1000 steps
     //retunrs tha into to display in the Data Analyisis View
     func calculateSteps() -> Int {
+        refreshData()
         var totalSteps = 0
         
         for habit in walkingHabitList {
@@ -39,6 +49,7 @@ class DataAnalyzer {
     }
     
     func calculateSleep() -> Int{
+        refreshData()
         var totalSleepHours = 0
         
         for habit in sleepingHabitList {
