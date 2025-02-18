@@ -17,6 +17,7 @@ struct CustomTabBar: View {
                 Spacer()
                 .fullScreenCover(isPresented: $showPlusView, content:  {
                     CreateNewHabit(showPlusView: $showPlusView)
+                        .accessibilityIdentifier("CreateNewHabitView")
                 })
                 
                 switch selectedTab {
@@ -73,8 +74,9 @@ struct CustomTabBar: View {
                         .background(Color.green, in: Circle())
                         .shadow(radius: 5)
                         .padding(.bottom,20)
-                }.offset(y: -40)
-
+                }.accessibilityIdentifier("centralPlusButton")
+                .offset(y: -40)
+                    
                 
                 HStack {
 

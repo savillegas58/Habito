@@ -57,6 +57,7 @@ struct HabitDetailsView: View {
                         .background(.darkGreen)
                         .cornerRadius(15)
                         .padding()
+                        
                             
                 }
                 Spacer()

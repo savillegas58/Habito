@@ -14,6 +14,7 @@ struct ContentView: View {
         if !isLoggedIn {
             //SignInView(isLoggedIn: $isLoggedIn)
             Onboarding1(isLoggedIn: $isLoggedIn)
+                .accessibilityIdentifier("Onboarding1")
 
         } else{
             CustomTabBar(isLoggedIn: $isLoggedIn)

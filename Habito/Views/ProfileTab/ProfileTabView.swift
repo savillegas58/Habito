@@ -72,6 +72,7 @@ struct ProfileTabView: View {
                         isLoggedIn = false
                     }
                     .tint(.red)
+                    .accessibilityIdentifier( "logoutButton" )
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.subheadline.bold())

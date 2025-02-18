@@ -15,8 +15,10 @@ struct Onboarding1: View {
     var body: some View {
         if showViewTwo {
             Onboarding2(isLoggedIn: $isLoggedIn)
+                .accessibilityIdentifier( "Onboarding2View")
         } else if showViewThree  {
             Onboarding3(isLoggedIn: $isLoggedIn)
+                .accessibilityIdentifier("Onboarding3View")
         } else {
             VStack{
                 HStack{
@@ -25,6 +27,7 @@ struct Onboarding1: View {
                         showViewThree = true
                     }).padding()
                         .foregroundStyle(.darkGreen)
+                        .accessibilityIdentifier("skipButton")
                 }
                 Image(uiImage: UIImage(named: "girl_drinking_onboarding1.png")!)
                     .resizable()
@@ -80,7 +83,8 @@ struct ArrowButton: View {
                 .foregroundStyle(.grayishWhite)
                 .frame(width: 30, height: 70)
                 .padding()
-        }.background(
+        }.accessibilityIdentifier("arrowbutton")
+        .background(
             Circle()
                 .fill(.customDarkGray)
                 .frame(width: 70, height: 70)
