@@ -22,7 +22,7 @@ struct Onboarding3: View {
                 //Habito logo?
                 Text("Welcome to")
                     .font(.title)
-                Text("Habito")
+                Text("Habit Helper")
                     .font(.title)
                     .foregroundStyle(.darkGreen)
             }.padding()

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleSignIn
 
 struct SignInView: View {
     @State var username = ""
@@ -76,9 +77,75 @@ struct SignInView: View {
             .cornerRadius(15)
             .padding()
             
+            Text("Or login with")
+            
+            HStack{
+                Spacer()
+                Button
+                {
+                    googleSignIn()
+                } label: {
+                    Image(uiImage: UIImage(named: "google.png")!)
+                        .resizable()
+                        .background(Color.white)
+                        .scaledToFill()
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(15)
+                        .shadow(radius: 3)
+                }
+                Spacer()
+                Button
+                {
+                    print("Apple Sign In")
+                } label: {
+                    Image(uiImage: UIImage(named: "apple.png")!)
+                        .resizable()
+                        .background(Color.white)
+                        .scaledToFill()
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(15)
+                        .shadow(radius: 3)
+                        
+                }
+                Spacer()
+            }
+
+            
 
         }
     }
+    
+    
+    func googleSignIn(){
+        let clientID = "628229680192-47eoc1ot1an4i6hdm2lcpm25sq9pebrq.apps.googleusercontent.com"
+
+        let config = GIDConfiguration(clientID: clientID)
+            GIDSignIn.sharedInstance.configuration = config
+
+            guard let presentingVC = UIApplication.shared.windows.first?.rootViewController else {
+                print("Error: No presenting view controller found")
+                return
+            }
+
+            GIDSignIn.sharedInstance.signIn(withPresenting: presentingVC) { result, error in
+                if let error = error {
+                    print(" Google Sign-In failed: \(error.localizedDescription)")
+                    return
+                }
+
+                guard let user = result?.user else {
+                    print("Error: User data is nil")
+                    return
+                }
+                isLoggedIn = true
+                print(" Google Sign-In successful!")
+                print("User ID: \(user.userID ?? "N/A")")
+                print(" Email: \(user.profile?.email ?? "N/A")")
+                print("Name: \(user.profile?.name ?? "N/A")")
+            }
+        print("method ended")
+        }
+    
 }
 
 struct SignInView_Previews: PreviewProvider {
