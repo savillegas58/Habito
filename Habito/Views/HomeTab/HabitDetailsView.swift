@@ -10,7 +10,6 @@
 import SwiftUI
 
 struct HabitDetailsView: View {
-    //@State var percentageProgress: Int?
     @State var progress: Float
     var habitName: String?
     var goal: Int?

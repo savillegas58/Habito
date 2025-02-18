@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DailyHabitsTrackerView: View {
-    let habitsList = HabitViewModel.habitFetcher.getCurrentAccountHabits()
+    var habitsList = HabitViewModel.habitFetcher.getCurrentAccountHabits()
     
     var body: some View {
 
