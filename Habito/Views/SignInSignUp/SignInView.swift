@@ -24,18 +24,20 @@ struct SignInView: View {
                         .font(.title2)
                         .foregroundColor(.black)
                 }.padding(.leading, 25)
-                    .padding(.top, -45)
+                    .padding(.top, -100)
                     .fullScreenCover(isPresented: $returnToOnboarding) {
                     Onboarding3(isLoggedIn: $isLoggedIn)
                     }
                 Spacer()
             }
 
-                              
-            Image("sanjose.jpg")
-                .resizable()
-                .frame(width: 200, height: 200)
-                .padding()
+            
+
+            Text("Habit Helper")
+                .font(Font.custom( "", size: 50))
+                .foregroundColor(.darkGreen)
+                .padding(.bottom, 50)
+
             Text("Welcome Back!")
                 .font(Font.custom("", size: 30))
                 .padding(.bottom)
@@ -73,7 +75,7 @@ struct SignInView: View {
             .bold()
             .cornerRadius(15)
             .padding()
-
+            
 
         }
     }
