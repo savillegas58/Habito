@@ -28,8 +28,8 @@ struct DataProgressCard: View {
                         .padding(.leading, 40)
                     Spacer()
                     
-                    Gauge(value: Double((dataAnalyzer.calculateDailyCompletion()/*percentageValue ?? 33*/))/100.0, in: 0...1) {
-                        Text("\(dataAnalyzer.calculateDailyCompletion() /*?? 33*/)%")
+                    Gauge(value: Double(dataAnalyzer.calculateDailyCompletion()), in: 0...100) {
+                        Text("\(dataAnalyzer.calculateDailyCompletion())%")
                     }.gaugeStyle(.accessoryCircularCapacity)
                         .tint(.darkGreen)
                         .foregroundStyle(.black)
