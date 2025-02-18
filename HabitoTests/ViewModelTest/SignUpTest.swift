@@ -92,7 +92,6 @@ final class SignUpTest: XCTestCase {
         let viewmodel = SignUpViewModel()
         
         XCTAssertTrue(viewmodel.passwordIsntValid(password: invalidPasswordTooShort))
-        
     }
     
     func testPassswordIsntValid_returnsTrue_passwordNoSpecialCharacter() {
@@ -110,5 +109,38 @@ final class SignUpTest: XCTestCase {
         let viewmodel = SignUpViewModel()
         
         XCTAssertTrue(viewmodel.passwordIsntValid(password: invalidPasswordTooShort))
+    }
+    
+    func testUsernameIsntValid_returnsTrue_usernameIsEmpty() {
+        let emptyUsername = ""
+        
+        let viewmodel = SignUpViewModel()
+        
+        XCTAssertTrue(viewmodel.usernameIsntValid(username: emptyUsername))
+    }
+    
+    func testUsernameIsntValid_returnssFalse_usernameIsntTaken() {
+        let username = "newUsernameForTesting_."
+        
+        let viewmodel = SignUpViewModel()
+        
+        XCTAssertFalse(viewmodel.usernameIsntValid(username: username))
+    }
+    
+    func testUsernameIsntVlaid_returnsTrue_ussernameIsTaken() {
+        let takenUsername = "TakenUsernameFortesting_."
+        let email = "abc@gmail.com"
+        let password = "*8askdfghjk"
+        let phonenumber = "123-456-7890"
+        
+        let viewmodel = SignUpViewModel()
+        
+        viewmodel.createAccount(username: takenUsername, email: email, phoneNumber: phonenumber, password: password)
+        
+        XCTAssertTrue(viewmodel.usernameIsntValid(username: takenUsername))
+        
+        addTeardownBlock {
+            DatabaseAccountDeleter.accountDeleter.deleteAccountByName(username: takenUsername)
+        }
     }
 }
