@@ -14,6 +14,7 @@ struct ChallengeCardView: View {
     var image: UIImage?
     var personImage: UIImage?
     @State var showPopUpView: Bool = false
+    @State var isDone: Bool = false
     var body: some View {
         ZStack{
             if showPopUpView{
@@ -48,7 +49,7 @@ struct ChallengeCardView: View {
                         Spacer()
                         Image(systemName: "checkmark.circle")
                             .font(.title2)
-                            .foregroundColor(.darkGreen)
+                            .foregroundColor(isDone ? .darkGreen : .gray)
                             .padding(.leading, 10)
                        
                         
@@ -65,6 +66,7 @@ struct ChallengeCardView: View {
         }.padding(.bottom, 20)
             .onTapGesture {
                 showPopUpView.toggle()
+                isDone = true
             }
     }
 }

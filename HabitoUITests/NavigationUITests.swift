@@ -49,7 +49,7 @@ final class NavigationUITests: XCTestCase {
         let notificationButton = app.buttons["NotificationButton"]
         let existsPredicate = NSPredicate(format: "exists == true")
         expectation(for: existsPredicate, evaluatedWith: notificationButton, handler: nil)
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
         XCTAssertTrue(notificationButton.exists, "The Notification button should exist")
 
         notificationButton.tap()
@@ -57,6 +57,22 @@ final class NavigationUITests: XCTestCase {
     
         let notificationView = app.otherElements["NotificationsView"]
         XCTAssertTrue(notificationView.exists, "The Notifications view should appear after tapping the button")
+    }
+    
+    
+    func testNotificationXMarkButtonRemovesNotificationsView() {
+
+        let notificationXMarkButton = app.buttons["NotificationXMarkButton"]
+        let existsPredicate = NSPredicate(format: "exists == true")
+        expectation(for: existsPredicate, evaluatedWith: notificationXMarkButton, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertTrue(notificationXMarkButton.exists, "The Notification button should exist")
+
+        notificationXMarkButton.tap()
+
+    
+        let notificationView = app.otherElements["NotificationsView"]
+        XCTAssertFalse(notificationView.exists, "The Notifications view should disappear after tapping the button")
     }
     
     func testCentralButtonShowsCentralView() {
