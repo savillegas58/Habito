@@ -33,7 +33,7 @@ class HabitViewModel {
         return percentageAsInt
     }
     
-    //temporrary method, hopefully
+    //get the first habit in the list, this is meant to grab an abitrary habit for display in the home screen
     func getAnySingleHabit() -> Habit {
         let list = getCurrentAccountHabits()
         let habit = list.first!
