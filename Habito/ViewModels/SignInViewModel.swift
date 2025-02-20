@@ -20,14 +20,12 @@ class SignInViewModel {
                 print("Login successful")
                 persistAccountId(fetchedAccountID: (fetchedAccount?.ID)!)
                 return true
+            } else {
+                return false
             }
         } else {
-            print("Account with username not found")
             return false
         }
-
-        //try to fetch user, if done check if password matches set account id in user default and return true
-        return true
     }
     
     private func persistAccountId(fetchedAccountID : Int) {
