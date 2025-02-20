@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PersonalDataView: View {
+    let currentAccount = EditProfileViewModel.profileEditor.getCurrentAccount()
     @State var username: String = "Username"
     @State var email: String = "Password"
     @State var phoneNumber: String = "123-456-7890"
@@ -31,7 +32,7 @@ struct PersonalDataView: View {
                 
             
             //Used to be the the username text field
-            Text(username)
+            Text((currentAccount?.username)!)
                 .textFieldStyle(CustomTextFieldStyle())
                 .frame(maxWidth: 250, alignment: .center)
                 .padding()
@@ -43,7 +44,7 @@ struct PersonalDataView: View {
                 .padding(.top, 20)
             
             //Used to be the email text field
-            Text(email)
+            Text((currentAccount?.email)!)
                 .textFieldStyle(CustomTextFieldStyle())
                 .frame(maxWidth: 250, alignment: .center)
                 .padding()
@@ -55,7 +56,7 @@ struct PersonalDataView: View {
                 .padding(.top,20)
             
             //Used to be the phone number text field
-            Text(phoneNumber)
+            Text((currentAccount?.phoneNumber)!)
                 .textFieldStyle(CustomTextFieldStyle())
                 .frame(maxWidth: 250, alignment: .center)
                 .padding()

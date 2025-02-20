@@ -14,6 +14,14 @@ class EditProfileViewModel {
     
     private init() {}
     
+    func getCurrentAccount() -> Account? {
+        let currentID = UserDefaults.standard.integer(forKey: "currentAccountID")
+        
+        let account = DatabaseAccountFetcher.accountFetcher.fetchAccountByID(accountID: String(currentID))
+        
+        return account
+    }
+    
     func changeAccountUsername(newUsername: String) {
         do {
             try DatabaseAccountUpdater.accountUpdater.updateAccountUsername(accountID: currentAccountID, newUsername: newUsername)
