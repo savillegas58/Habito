@@ -17,6 +17,8 @@ struct SignUpView: View {
     @State var shouldEnterApp = false
     @State var returnToOnboarding: Bool = false
     @Binding var isLoggedIn : Bool
+    @State var credentialError = false
+    @State var credentialErrorMessage = ""
     
     var body: some View {
             VStack{
@@ -80,14 +82,24 @@ struct SignUpView: View {
                     //TODO: have failed validation affect the UI
                     if signUpViewModel.usernameIsntValid(username: username){
                         print("username validation failed")
+                        credentialError = true
+                        credentialErrorMessage = "Username must be unique and not empty."
                     } else if signUpViewModel.emailIsntValid(email: email){
                         print("email validation failed")
+                        credentialError = true
+                        credentialErrorMessage = "Invalid email format."
                     } else if signUpViewModel.phonenumberIsntValid(phoneNumber: phoneNumber){
                         print("phone number validation")
+                        credentialError = true
+                        credentialErrorMessage = "Invalid phone number format"
                     } else if signUpViewModel.passwordIsntValid(password: password) {
                         print("password validation failed")
+                        credentialError = true
+                        credentialErrorMessage = "Password must be 8+ characters long, contain a number, and contain a special character."
                     } else {
                         signUpViewModel.createAccount(username: username, email: email, phoneNumber: phoneNumber, password: password)
+                        credentialError = false
+                        credentialErrorMessage = ""
                         isLoggedIn = true
                     }
                 })
@@ -96,6 +108,14 @@ struct SignUpView: View {
                 .bold()
                 .cornerRadius(15)
                 .padding()
+                
+                if credentialError {
+                    Text(credentialErrorMessage)
+                        .bold()
+                        .foregroundStyle(.red)
+                        .multilineTextAlignment(.center)
+                }
+                
                 Text("Or login with")
                 HStack{
                     Spacer()
