@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ChallengeCardView: View {
-    var dayMessage: Int?
     var nameOfChallenge: String?
     var challengeDetails: String?
     var image: UIImage?
@@ -37,12 +36,13 @@ struct ChallengeCardView: View {
                     HStack{
                         Spacer()
                         VStack{
-                            Text("Day \(dayMessage ?? 1)")
                                 
                             Text(nameOfChallenge ?? "Stretching Challenge")
+                                .font(.title3)
                                 
-                            Text(challengeDetails ?? "Stretch for at least 2 seconds")
-                                .font(.caption2)
+                            Text(challengeDetails ?? "Stretch for at least 5 minutes")
+                                .font(.caption)
+                                .multilineTextAlignment(.center)
 
                         }.padding(.trailing, 20)
                         
