@@ -12,6 +12,7 @@ struct HabitCard: View {
     var subMessage: String?
     var percentageProgress: Double?
     var image: UIImage?
+    var personImage: UIImage?
     var currentProgress: Int?
     var goal: Int?
     var body: some View {
@@ -29,8 +30,11 @@ struct HabitCard: View {
 
                     
                     HStack{
-                        Image(systemName: "arrow.triangle.2.circlepath")
-                            .foregroundColor(.black)
+                        Image(uiImage: personImage ?? UIImage(named:"walking_card.png")!)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+
                         
                         VStack{
                             HStack{
