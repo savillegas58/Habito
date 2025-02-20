@@ -32,8 +32,9 @@ struct PersonalDataView: View {
             Text("Username")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
-                
-            TextField("", text: $username)
+            
+            //Used to be the the username text field
+            Text(username)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
                 .padding(.horizontal, 20)
@@ -42,7 +43,9 @@ struct PersonalDataView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
             
-            TextField("", text: $email)
+            
+            //Used to be the email text field
+            Text(email)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
                 .padding(.horizontal, 20)
@@ -50,7 +53,9 @@ struct PersonalDataView: View {
             Text("Phone Number")
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 20)
-            TextField("", text: $phoneNumber)
+            
+            //Used to be the phone number text field
+            Text(phoneNumber)
                 .textFieldStyle(CustomTextFieldStyle())
                 .padding(.bottom)
                 .padding(.horizontal, 20)
@@ -60,19 +65,20 @@ struct PersonalDataView: View {
                 .padding(.leading, 20)
             
             ZStack{
-                if isPasswordVisible {
-                    TextField("", text: $password)
-                        .textFieldStyle(CustomTextFieldStyle())
+               // if isPasswordVisible {
+                    //used to be the pasword text field
+                    Text(password)
+                        //.textFieldStyle(CustomTextFieldStyle())
                         .padding(.bottom)
                         .padding(.horizontal, 20)
-                } else {
+                /*} else {
                     SecureField("", text: $password)
-                        .textFieldStyle(CustomTextFieldStyle())
+                        //.textFieldStyle(CustomTextFieldStyle())
                         .padding(.bottom)
                         .padding(.horizontal, 20)
-                }
+                }*/
                     
-                HStack{
+                /*HStack{
                     Spacer()
                     Image(systemName: isPasswordVisible ? "eye" :"eye.slash")
                         .font(.title2)
@@ -81,7 +87,7 @@ struct PersonalDataView: View {
                         .onTapGesture {
                             isPasswordVisible.toggle()
                         }
-                }
+                }*/
                 
 
                    
