@@ -72,4 +72,30 @@ class DatabaseAccountFetcher {
         
         return fetchedAccount
     }
+    
+    
+    //fetch by id
+    func fetchAccountByID(accountID: String) -> Account? {
+        var accountStatment : OpaquePointer?
+        let db = DatabaseFoundation.databaseFoundation.db
+        let accountQuery = "SELECT * FROM account WHERE accountID = '\(accountID)'"
+        var fetchedAccount : Account?
+        
+        if sqlite3_prepare(db, accountQuery, -1, &accountStatment, nil) == SQLITE_OK {
+            
+            while(sqlite3_step(accountStatment) == SQLITE_ROW){
+                let fetchedID = Int(sqlite3_column_int(accountStatment, 0))
+                let fetchedUsername = String(cString: sqlite3_column_text(accountStatment, 1))
+                let fetchedPassword = String(cString: sqlite3_column_text(accountStatment, 2))
+                let fetchedPhoneNumber = String(cString: sqlite3_column_text(accountStatment, 3))
+                let fetchedEmail = String(cString: sqlite3_column_text(accountStatment, 4))
+                let fetchedProfilePictureLink = String(cString: sqlite3_column_text(accountStatment, 5))
+                fetchedAccount = Account(ID: fetchedID, username: fetchedUsername, password: fetchedPassword, phoneNumber: fetchedPhoneNumber, email: fetchedEmail, profilePictureLink: fetchedProfilePictureLink)
+            }
+        } else {
+            print("No account found deaching with ID")
+        }
+        
+        return fetchedAccount
+    }
 }
