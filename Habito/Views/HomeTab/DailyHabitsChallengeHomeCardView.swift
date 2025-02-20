@@ -18,7 +18,7 @@ struct DailyHabitsChallengeHomeCardView: View {
         VStack{
             NavigationLink(destination: DailyHabitsChallengeView()) {
                 HStack{
-                    Text("30 Days of healthy habits")
+                    Text("Today's Challenges")
                         .bold()
                     Spacer()
                     Image(systemName: "chevron.right")
@@ -38,28 +38,19 @@ struct DailyHabitsChallengeHomeCardView: View {
                     .opacity(0.8)
                 
                 VStack{
-                    Text("Today's Challenge")
+                    Text("Today's Top Challenge")
+                        .foregroundStyle(.grayishWhite)
+                        .font(.title2)
+                        .shadow(color: .black, radius: 3)
+                        .shadow(color: .black, radius: 1)
+                        .shadow(color: .black, radius: 1)
+
+                    Text(currentChallenge ?? "Stretch for atleast 5 minutes")
                         .foregroundStyle(.grayishWhite)
                         .shadow(color: .black, radius: 3)
                         .shadow(color: .black, radius: 1)
                         .shadow(color: .black, radius: 1)
-                    Text("Day \(currentDay ?? 0) of \(totalDays ?? 0)")
-                        .foregroundStyle(.grayishWhite)
-                        .shadow(color: .black, radius: 3)
-                        .shadow(color: .black, radius: 1)
-                        .shadow(color: .black, radius: 1)
-                        .padding(.bottom)
-                    Text(currentChallenge ?? "Walk for 20 Minutes")
-                        .foregroundStyle(.grayishWhite)
-                        .shadow(color: .black, radius: 3)
-                        .shadow(color: .black, radius: 1)
-                        .shadow(color: .black, radius: 1)
-                    Button("Done"){
-                        
-                    }.buttonStyle(.borderedProminent)
-                        .tint(.darkGreen)
-                        .cornerRadius(15)
-                        .shadow(radius: 3)
+
                 }
             }
 

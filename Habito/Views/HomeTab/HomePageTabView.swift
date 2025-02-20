@@ -39,7 +39,7 @@ struct HomePageTabView: View {
                 HealthyRecipesCardView()
 
                 
-            }.searchable(text: $searchText, prompt: "Search..")
+            }
         }.navigationTitle(Text("Home")).navigationBarTitleDisplayMode(.inline)
 
             
