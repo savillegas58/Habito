@@ -8,94 +8,61 @@
 import SwiftUI
 
 struct PersonalDataView: View {
-    @State var username: String = ""
-    @State var email: String = ""
-    @State var phoneNumber: String = ""
+    @State var username: String = "Username"
+    @State var email: String = "Password"
+    @State var phoneNumber: String = "123-456-7890"
     @State var password: String = ""
     @State var isPasswordVisible: Bool = false
     @State var image: UIImage?
     var body: some View {
         VStack{
-        
-            Image(uiImage: image ?? UIImage(named: "sanjose.jpg")!)
+            Spacer()
+            Image(uiImage: image ?? UIImage(named: "headshot_icon.jpg")!)
                 .resizable()
                 .clipShape(Circle())
                 .scaledToFill()
                 .shadow(radius: 3)
-                .frame(width: 120, height: 120)
-            Text("User name")
-            Text("Email")
-                .font(.subheadline)
-                .padding(.bottom)
+                .frame(width: 250, height: 250)
             
+            Spacer()
 
             Text("Username")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
+                .frame(maxWidth: .infinity, alignment: .center)
+                
             
             //Used to be the the username text field
             Text(username)
                 .textFieldStyle(CustomTextFieldStyle())
-                .padding(.bottom)
+                .frame(maxWidth: 250, alignment: .center)
+                .padding()
                 .padding(.horizontal, 20)
-
-            Text("E-mail")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
+                .background(RoundedRectangle(cornerRadius: 15, style: .continuous).stroke(Color(UIColor.darkGreen), lineWidth: 3))
             
+            Text("E-mail")
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.top, 20)
             
             //Used to be the email text field
             Text(email)
                 .textFieldStyle(CustomTextFieldStyle())
-                .padding(.bottom)
+                .frame(maxWidth: 250, alignment: .center)
+                .padding()
                 .padding(.horizontal, 20)
-                
+                .background(RoundedRectangle(cornerRadius: 15, style: .continuous).stroke(Color(UIColor.darkGreen), lineWidth: 3))
+        
             Text("Phone Number")
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 20)
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.top,20)
             
             //Used to be the phone number text field
             Text(phoneNumber)
                 .textFieldStyle(CustomTextFieldStyle())
-                .padding(.bottom)
+                .frame(maxWidth: 250, alignment: .center)
+                .padding()
                 .padding(.horizontal, 20)
+                .background(RoundedRectangle(cornerRadius: 15, style: .continuous).stroke(Color(UIColor.darkGreen), lineWidth: 3))
             
-            Text("Password")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-            
-            ZStack{
-               // if isPasswordVisible {
-                    //used to be the pasword text field
-                    Text(password)
-                        //.textFieldStyle(CustomTextFieldStyle())
-                        .padding(.bottom)
-                        .padding(.horizontal, 20)
-                /*} else {
-                    SecureField("", text: $password)
-                        //.textFieldStyle(CustomTextFieldStyle())
-                        .padding(.bottom)
-                        .padding(.horizontal, 20)
-                }*/
-                    
-                /*HStack{
-                    Spacer()
-                    Image(systemName: isPasswordVisible ? "eye" :"eye.slash")
-                        .font(.title2)
-                        .padding(.trailing, 30)
-                        .padding(.bottom, 15)
-                        .onTapGesture {
-                            isPasswordVisible.toggle()
-                        }
-                }*/
-                
-
-                   
-                    
-            }.padding(.bottom, 20)
-
-            
-            
+            Spacer()
             
         }.navigationTitle("Personal Data")
     }

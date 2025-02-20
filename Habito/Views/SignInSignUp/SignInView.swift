@@ -46,7 +46,7 @@ struct SignInView: View {
                 .padding(.bottom)
             Text("Log in to continue building your healthy habits")
                 .padding(.bottom)
-            Text("E-mail")
+            Text("Username")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
             TextField("Username",text: $username)
