@@ -17,7 +17,7 @@ class SignInViewModel {
         
         if(fetchedAccount != nil) {
             if fetchedAccount?.password == password {
-                print("Loggin successful")
+                print("Login successful")
                 persistAccountId(fetchedAccountID: (fetchedAccount?.ID)!)
                 return true
             }

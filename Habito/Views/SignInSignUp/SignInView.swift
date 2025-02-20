@@ -14,6 +14,8 @@ struct SignInView: View {
     @State var isPresenting = false
     @State var returnToOnboarding: Bool = false
     @Binding var isLoggedIn : Bool
+    @State var thereIsCredentialError = false
+    @State var credentiaulErrorMessage = ""
     var body: some View {
         VStack {
             HStack{
@@ -68,9 +70,11 @@ struct SignInView: View {
 
                 if SignInViewModel.signInViewModel.providedCredentialAreValid(username: username, password: password) {
                     isLoggedIn = true
+                    thereIsCredentialError = false
                 } else {
-                    //dispaly seom sort of notificaton
+                    thereIsCredentialError = true
                 }
+
             })
             .frame(maxWidth: .infinity, minHeight: 50)
             .background(Color.darkGreen)
@@ -78,6 +82,13 @@ struct SignInView: View {
             .bold()
             .cornerRadius(15)
             .padding()
+            
+            if thereIsCredentialError {
+                Text("Username or Password is incorrect")
+                    .bold()
+                    .foregroundStyle(.red)
+                    .multilineTextAlignment(.center)
+            }
             
             Text("Or login with")
             
