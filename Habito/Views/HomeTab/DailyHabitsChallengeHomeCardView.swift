@@ -45,7 +45,7 @@ struct DailyHabitsChallengeHomeCardView: View {
                         .shadow(color: .black, radius: 1)
                         .shadow(color: .black, radius: 1)
 
-                    Text(currentChallenge ?? "Stretch for atleast 5 minutes")
+                    Text(currentChallenge ?? "Stretch for at least 5 minutes")
                         .foregroundStyle(.grayishWhite)
                         .shadow(color: .black, radius: 3)
                         .shadow(color: .black, radius: 1)

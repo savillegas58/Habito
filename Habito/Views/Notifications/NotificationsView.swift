@@ -26,7 +26,7 @@ struct NotificationsView: View {
             
             
             ScrollView{
-                NotificationCard(title: "It's time to workout!", text: "It's time head for the gym. Be sure to get ready and don't be late!", image: "dumbbell", time: "11:30 AM")
+                NotificationCard(title: "It's time to workout!", text: "Go to the Home tab and start completing your daily challenges!", image: "dumbbell", time: "11:30 AM")
                 NotificationCard()
             }.navigationTitle("Notifications").navigationBarTitleDisplayMode(.inline)
             

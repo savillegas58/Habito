@@ -16,7 +16,7 @@ struct DailyHabitsTrackerView: View {
             DataPickerView()
                 .padding(.top, -300)
             ForEach(habitsList) { habit in
-                HabitCard(message: habit.name, subMessage: "\(habit.currentProgress!)/\(habit.goal!)", percentageProgress: calculatePercentageProgress(currentProgress: habit.currentProgress!, goal: habit.goal!), image: UIImage(systemName: ""), currentProgress: habit.currentProgress, goal: habit.goal)
+                HabitCard(message: habit.name, subMessage: "\(habit.currentProgress!)/\(habit.goal!)", percentageProgress: calculatePercentageProgress(currentProgress: habit.currentProgress!, goal: habit.goal!), image: UIImage(named: "\(habit.type?.rawValue ?? "running").jpg"),personImage: UIImage(named: "\(habit.type?.rawValue ?? "running")_card.png"),currentProgress: habit.currentProgress, goal: habit.goal)
                     .padding(.top, 20)
             }//.padding(.top, 20)
 

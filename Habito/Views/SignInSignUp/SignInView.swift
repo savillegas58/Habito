@@ -27,7 +27,7 @@ struct SignInView: View {
                         .font(.title2)
                         .foregroundColor(.black)
                 }.padding(.leading, 25)
-                    .padding(.top, -100)
+                    .padding(.top, -55)
                     .fullScreenCover(isPresented: $returnToOnboarding) {
                     Onboarding3(isLoggedIn: $isLoggedIn)
                     }

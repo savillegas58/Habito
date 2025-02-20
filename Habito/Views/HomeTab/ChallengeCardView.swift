@@ -31,7 +31,7 @@ struct ChallengeCardView: View {
                 .opacity(0.8)
             
             HStack{
-                Image(uiImage: personImage ?? UIImage(systemName: "cat.circle")!)
+                
                 VStack{
                     HStack{
                         Spacer()
