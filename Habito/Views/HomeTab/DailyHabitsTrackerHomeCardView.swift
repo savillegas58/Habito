@@ -10,9 +10,9 @@ import SwiftUI
 struct DailyHabitsTrackerHomeCardView: View {
     //right now this just grabs the first habit and displays that data
     let habit = HabitViewModel.habitFetcher.getAnySingleHabit()
-    let percentage = HabitViewModel.habitFetcher.progressPercentage
+    @State var percentage = HabitViewModel.habitFetcher.progressPercentage
     var image: UIImage?
-    var percentageValue: Int?
+    //var percentageValue: Int?
     var body: some View {
         
         VStack{
@@ -63,6 +63,11 @@ struct DailyHabitsTrackerHomeCardView: View {
                     }
                         
                 }.padding(.horizontal, 40)
+                 .onAppear(perform: {
+                     //call getAnySIngleHAbit first?
+                     HabitViewModel.habitFetcher.getAnySingleHabit()
+                     percentage = HabitViewModel.habitFetcher.progressPercentage
+                })
 
                 
             }.clipShape(RoundedRectangle(cornerRadius: 15))
