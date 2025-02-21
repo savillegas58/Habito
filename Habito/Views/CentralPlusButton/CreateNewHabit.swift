@@ -226,7 +226,7 @@ struct CreateNewHabit: View {
                 print("trying to add habit")
                 let habitCreator = CreateHabitViewModel()
                 //10 is just a random default
-                habitCreator.addHabitToCurrentAccount(name: habitTitle,type: selectedActivity!)
+                habitCreator.addHabitToCurrentAccount(name: habitTitle,type: selectedActivity ?? "Drinking")
                 withAnimation {
                     showPlusView.toggle()
                 }
